@@ -1,4 +1,5 @@
 import { DecorativeDots, DecorativeSquare } from "../shared/DecorativeElements";
+import profileImage from "@/assets/profile-image.png";
 
 const Hero = () => {
   return (
@@ -37,8 +38,12 @@ const Hero = () => {
             
             {/* Profile image */}
             <div className="relative">
-              <div className="w-64 h-80 md:w-72 md:h-96 bg-gradient-to-b from-primary/20 to-transparent border border-border flex items-center justify-center">
-                <span className="text-muted-foreground text-6xl">👨‍💻</span>
+              <div className="w-64 h-80 md:w-72 md:h-96 bg-gradient-to-b from-primary/20 to-transparent border border-border flex items-end justify-center overflow-hidden">
+                <img 
+                  src={profileImage} 
+                  alt="Ram Krishna" 
+                  className="w-full h-full object-cover object-top"
+                />
               </div>
               
               {/* Status badge */}
