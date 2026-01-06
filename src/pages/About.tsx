@@ -4,6 +4,7 @@ import Footer from "@/components/layout/Footer";
 import SectionHeader from "@/components/shared/SectionHeader";
 import SkillCategory from "@/components/shared/SkillCategory";
 import { DecorativeDots, DecorativeSquare } from "@/components/shared/DecorativeElements";
+import profileImage from "@/assets/profile-image.png";
 
 const skillsData = [
   { title: "Languages", skills: ["JavaScript", "TypeScript", "Python", "Node.js"] },
@@ -74,10 +75,14 @@ const About = () => {
                 </p>
               </div>
 
-              {/* Image placeholder */}
+              {/* Profile Image */}
               <div className="relative flex justify-center lg:justify-end">
-                <div className="w-72 h-96 bg-secondary border border-border flex items-center justify-center">
-                  <span className="text-muted-foreground text-8xl">🧑‍💻</span>
+                <div className="w-72 h-96 bg-gradient-to-b from-primary/20 to-transparent border border-border flex items-end justify-center overflow-hidden">
+                  <img 
+                    src={profileImage} 
+                    alt="Ram Krishna" 
+                    className="w-full h-full object-cover object-top"
+                  />
                 </div>
               </div>
             </div>
