@@ -1,5 +1,5 @@
 import { DecorativeDots, DecorativeSquare } from "../shared/DecorativeElements";
-import Developer3D from "../shared/Developer3D";
+import TerminalAnimation from "../shared/TerminalAnimation";
 
 const Hero = () => {
   return (
@@ -36,9 +36,9 @@ const Hero = () => {
             />
             <DecorativeSquare className="absolute -bottom-4 -left-8 opacity-30" />
             
-            {/* 3D Developer Illustration */}
+            {/* Terminal Animation */}
             <div className="relative">
-              <Developer3D />
+              <TerminalAnimation />
               
               {/* Status badge */}
               <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 px-4 py-2 bg-background border border-border">

@@ -4,7 +4,7 @@ import Footer from "@/components/layout/Footer";
 import SectionHeader from "@/components/shared/SectionHeader";
 import SkillCategory from "@/components/shared/SkillCategory";
 import { DecorativeDots, DecorativeSquare } from "@/components/shared/DecorativeElements";
-import Developer3D from "@/components/shared/Developer3D";
+import TerminalAnimation from "@/components/shared/TerminalAnimation";
 
 const skillsData = [
   { title: "Languages", skills: ["JavaScript", "TypeScript", "Python", "Node.js"] },
@@ -75,9 +75,9 @@ const About = () => {
                 </p>
               </div>
 
-              {/* 3D Developer Illustration */}
+              {/* Terminal Animation */}
               <div className="relative flex justify-center lg:justify-end">
-                <Developer3D />
+                <TerminalAnimation />
               </div>
             </div>
           </section>
