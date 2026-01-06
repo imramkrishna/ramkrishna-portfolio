@@ -6,11 +6,11 @@ import SkillCategory from "@/components/shared/SkillCategory";
 import { DecorativeDots, DecorativeSquare } from "@/components/shared/DecorativeElements";
 
 const skillsData = [
-  { title: "Languages", skills: ["JavaScript", "TypeScript", "Python", "Java", "C++"] },
-  { title: "Databases", skills: ["MongoDB", "PostgreSQL", "MySQL", "Redis", "Firebase"] },
-  { title: "Tools", skills: ["Git", "Docker", "VS Code", "Postman", "Figma"] },
-  { title: "Frameworks", skills: ["React", "Express.js", "Next.js", "Tailwind", "Bootstrap"] },
-  { title: "Other", skills: ["REST APIs", "GraphQL", "CI/CD", "AWS", "Linux"] },
+  { title: "Languages", skills: ["JavaScript", "TypeScript", "Python", "Node.js"] },
+  { title: "Databases", skills: ["MongoDB", "PostgreSQL", "MySQL"] },
+  { title: "Tools", skills: ["Git", "Vercel", "Azure", "VPS Hosting", "Figma"] },
+  { title: "Frameworks", skills: ["React", "Express.js", "Next.js", "Tailwind", "Redux", "Bootstrap"] },
+  { title: "Other", skills: ["REST APIs", "GraphQL", "JWT", "OAuth", "WebSockets", "SEO"] },
 ];
 
 const funFacts = [
@@ -53,19 +53,20 @@ const About = () => {
               <div className="space-y-4 text-muted-foreground">
                 <p>Hello, I'm Ram Krishna!</p>
                 <p>
-                  I'm a self-taught full stack developer based in India. I specialize in 
-                  building web applications using the MERN stack (MongoDB, Express.js, 
-                  React, and Node.js).
+                  I'm a Full Stack Engineer specializing in scalable web application 
+                  development based in India. I specialize in the MERN stack 
+                  (MongoDB, Express.js, React, and Node.js).
                 </p>
                 <p>
-                  I started my journey as a developer exploring various technologies and 
-                  frameworks. Now I work on creating responsive and user-friendly web 
-                  applications that solve real problems.
+                  I've delivered production-ready applications with proven performance 
+                  optimization and enhanced user experience. Proficient in modern 
+                  JavaScript frameworks, RESTful APIs, cloud infrastructure (AWS, Azure), 
+                  and deployment platforms (Vercel, VPS hosting).
                 </p>
                 <p>
-                  I love learning new technologies and sharing my knowledge with others 
-                  through my projects and open source contributions. When I'm not coding, 
-                  you'll find me watching anime or exploring new tech blogs.
+                  I'm experienced in end-to-end application lifecycle from development 
+                  to production deployment. When I'm not coding, you'll find me watching 
+                  anime or exploring new tech blogs.
                 </p>
                 <p>
                   I'm always open to discussing product design work or partnership 

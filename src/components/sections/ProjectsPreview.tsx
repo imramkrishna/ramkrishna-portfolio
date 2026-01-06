@@ -5,35 +5,35 @@ import { DecorativeDots, DecorativeSquare } from "../shared/DecorativeElements";
 
 const featuredProjects = [
   {
-    title: "ChertNodes",
-    description: "Productivity app for developers with real-time collaboration and task management features.",
+    title: "XCodeGen-AI",
+    description: "AI assistant for software development with Developer Mode and Chat Mode. Features custom file system for direct LLM modifications.",
     image: "/placeholder.svg",
-    technologies: ["React", "Express", "MongoDB", "Node.js"],
+    technologies: ["React", "Node.js", "MongoDB", "Llama", "Gemini"],
     liveUrl: "#",
     githubUrl: "https://github.com/imramkrishna",
   },
   {
-    title: "ProtectX",
-    description: "Discord bot with multiple moderation and utility features for community management.",
+    title: "ChessOnline",
+    description: "Real-time multiplayer chess platform with WebSocket technology, drag-and-drop functionality, and complete rule enforcement.",
     image: "/placeholder.svg",
-    technologies: ["Python", "Discord.py", "PostgreSQL"],
+    technologies: ["React", "WebSocket", "Node.js", "TypeScript"],
     liveUrl: "#",
     githubUrl: "https://github.com/imramkrishna",
   },
   {
-    title: "Kahoot Tracker",
-    description: "Web application to track and analyze Kahoot game statistics and leaderboards.",
+    title: "WMS System",
+    description: "Warehouse management system with real-time inventory tracking, order management, and role-based access control.",
     image: "/placeholder.svg",
-    technologies: ["React", "TypeScript", "Firebase"],
+    technologies: ["React", "PostgreSQL", "Node.js", "JWT"],
     liveUrl: "#",
     githubUrl: "https://github.com/imramkrishna",
   },
 ];
 
 const smallProjects = [
-  { title: "Bot boance", tech: "CSS Express Node.js" },
-  { title: "UI/UX Portfolio", tech: "Figma React" },
-  { title: "Crypto Dashboard", tech: "Vue.js Chart.js" },
+  { title: "Games Hub", tech: "Next.js Canvas TypeScript" },
+  { title: "ChatConnect", tech: "React WebSocket Express" },
+  { title: "Portfolio Site", tech: "React Tailwind TypeScript" },
 ];
 
 const ProjectsPreview = () => {

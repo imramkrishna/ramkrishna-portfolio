@@ -7,14 +7,15 @@ const Hero = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="space-y-6 animate-fade-in">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-semibold leading-tight">
               Ram Krishna is a{" "}
-              <span className="text-primary">Full Stack Developer</span> and{" "}
+              <span className="text-primary">Full Stack Engineer</span> and{" "}
               <span className="text-primary">MERN specialist</span>
             </h1>
-            <p className="text-muted-foreground text-lg max-w-lg">
-              He crafts responsive websites and scalable web applications 
-              with modern technologies and clean code.
+            <p className="text-muted-foreground text-base max-w-lg">
+              He crafts scalable web applications with modern technologies, 
+              RESTful APIs, and cloud infrastructure. Experienced in end-to-end 
+              application lifecycle from development to production deployment.
             </p>
             <a
               href="/contacts"
@@ -36,7 +37,7 @@ const Hero = () => {
             
             {/* Profile image placeholder */}
             <div className="relative">
-              <div className="w-64 h-80 md:w-80 md:h-96 bg-gradient-to-b from-primary/20 to-transparent border border-border flex items-end justify-center overflow-hidden">
+              <div className="w-64 h-80 md:w-72 md:h-96 bg-gradient-to-b from-primary/20 to-transparent border border-border flex items-end justify-center overflow-hidden">
                 <div className="w-full h-full bg-secondary flex items-center justify-center">
                   <span className="text-muted-foreground text-6xl">👨‍💻</span>
                 </div>
