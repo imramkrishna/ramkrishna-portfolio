@@ -42,11 +42,7 @@ const Hero = () => {
                 <img 
                   src={profileImage} 
                   alt="Ram Krishna" 
-                  className="w-full h-full object-cover object-top mix-blend-luminosity hover:mix-blend-normal transition-all duration-300"
-                  style={{ 
-                    filter: 'contrast(1.1)',
-                    backgroundColor: 'transparent'
-                  }}
+                  className="w-full h-full object-cover object-top"
                 />
               </div>
               
