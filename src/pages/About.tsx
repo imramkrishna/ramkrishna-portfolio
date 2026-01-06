@@ -4,7 +4,7 @@ import Footer from "@/components/layout/Footer";
 import SectionHeader from "@/components/shared/SectionHeader";
 import SkillCategory from "@/components/shared/SkillCategory";
 import { DecorativeDots, DecorativeSquare } from "@/components/shared/DecorativeElements";
-import profileImage from "@/assets/profile-image.png";
+import Developer3D from "@/components/shared/Developer3D";
 
 const skillsData = [
   { title: "Languages", skills: ["JavaScript", "TypeScript", "Python", "Node.js"] },
@@ -75,15 +75,9 @@ const About = () => {
                 </p>
               </div>
 
-              {/* Profile Image */}
+              {/* 3D Developer Illustration */}
               <div className="relative flex justify-center lg:justify-end">
-                <div className="w-72 h-96 flex items-end justify-center">
-                  <img 
-                    src={profileImage} 
-                    alt="Ram Krishna" 
-                    className="w-full h-full object-contain object-bottom"
-                  />
-                </div>
+                <Developer3D />
               </div>
             </div>
           </section>
