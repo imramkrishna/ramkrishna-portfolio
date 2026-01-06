@@ -5,23 +5,23 @@ import { DecorativeDots, DecorativeCross } from "../shared/DecorativeElements";
 const skillsData = [
   {
     title: "Languages",
-    skills: ["JavaScript", "TypeScript", "Python", "Java"],
+    skills: ["JavaScript", "TypeScript", "Python", "Node.js"],
   },
   {
     title: "Databases",
-    skills: ["MongoDB", "PostgreSQL", "MySQL", "Redis"],
+    skills: ["MongoDB", "PostgreSQL", "MySQL"],
   },
   {
     title: "Tools",
-    skills: ["Git", "Docker", "VS Code", "Postman"],
+    skills: ["Git", "Vercel", "Azure", "VPS Hosting", "Figma"],
   },
   {
     title: "Other",
-    skills: ["React", "Node.js", "Express", "Next.js"],
+    skills: ["REST APIs", "GraphQL", "JWT", "OAuth", "WebSockets", "SEO"],
   },
   {
     title: "Frameworks",
-    skills: ["React", "Express.js", "Next.js", "Tailwind"],
+    skills: ["React", "Express.js", "Next.js", "Tailwind", "Redux", "Bootstrap"],
   },
 ];
 
