@@ -39,15 +39,6 @@ const Hero = () => {
             {/* Terminal Animation */}
             <div className="relative">
               <TerminalAnimation />
-              
-              {/* Status badge */}
-              <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 px-4 py-2 bg-background border border-border">
-                <div className="w-3 h-3 bg-primary" />
-                <span className="text-muted-foreground text-sm whitespace-nowrap">
-                  Currently working on{" "}
-                  <span className="text-foreground">Portfolio</span>
-                </span>
-              </div>
             </div>
           </div>
         </div>
