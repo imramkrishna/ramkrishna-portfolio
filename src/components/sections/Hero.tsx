@@ -1,5 +1,5 @@
 import { DecorativeDots, DecorativeSquare } from "../shared/DecorativeElements";
-import profileImage from "@/assets/profile-image.png";
+import Developer3D from "../shared/Developer3D";
 
 const Hero = () => {
   return (
@@ -36,15 +36,9 @@ const Hero = () => {
             />
             <DecorativeSquare className="absolute -bottom-4 -left-8 opacity-30" />
             
-            {/* Profile image */}
+            {/* 3D Developer Illustration */}
             <div className="relative">
-              <div className="w-64 h-80 md:w-72 md:h-96 flex items-end justify-center">
-                <img 
-                  src={profileImage} 
-                  alt="Ram Krishna" 
-                  className="w-full h-full object-contain object-bottom"
-                />
-              </div>
+              <Developer3D />
               
               {/* Status badge */}
               <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 px-4 py-2 bg-background border border-border">
