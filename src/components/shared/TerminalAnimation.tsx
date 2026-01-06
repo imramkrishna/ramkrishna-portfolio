@@ -1,134 +1,223 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
-const codeLines = [
-  { text: "const developer = {", delay: 0 },
-  { text: '  name: "Ram Krishna",', delay: 800 },
-  { text: '  role: "Full Stack Engineer",', delay: 1600 },
-  { text: '  skills: ["React", "Node.js", "MongoDB"],', delay: 2400 },
-  { text: '  passion: "Building scalable apps",', delay: 3200 },
-  { text: "};", delay: 4000 },
-  { text: "", delay: 4800 },
-  { text: "developer.code();", delay: 5200 },
-  { text: '// Output: "Amazing things!"', delay: 6000 },
+interface CodeLine {
+  text: string;
+  type: "keyword" | "property" | "string" | "bracket" | "comment" | "method" | "variable" | "empty";
+}
+
+const codeLines: CodeLine[] = [
+  { text: "const developer = {", type: "keyword" },
+  { text: '  name: "Ram Krishna",', type: "property" },
+  { text: '  role: "Full Stack Engineer",', type: "property" },
+  { text: '  stack: ["React", "Node.js", "MongoDB"],', type: "property" },
+  { text: '  passion: "Building scalable apps",', type: "property" },
+  { text: "};", type: "bracket" },
+  { text: "", type: "empty" },
+  { text: "developer.build();", type: "method" },
+  { text: "// → Ready to create amazing things", type: "comment" },
 ];
 
 const TerminalAnimation = () => {
-  const [visibleLines, setVisibleLines] = useState<number>(0);
-  const [currentText, setCurrentText] = useState<string>("");
+  const [displayedLines, setDisplayedLines] = useState<string[]>([]);
+  const [currentLineIndex, setCurrentLineIndex] = useState(0);
+  const [currentCharIndex, setCurrentCharIndex] = useState(0);
   const [isTyping, setIsTyping] = useState(true);
+  const [showCursor, setShowCursor] = useState(true);
+
+  // Human-like typing speed with natural variation
+  const getTypingDelay = useCallback(() => {
+    const baseDelay = 45;
+    const variation = Math.random() * 35;
+    // Slight pause after punctuation
+    return baseDelay + variation;
+  }, []);
 
   useEffect(() => {
-    if (visibleLines >= codeLines.length) {
-      // Reset after completion
+    if (!isTyping) return;
+
+    if (currentLineIndex >= codeLines.length) {
+      setIsTyping(false);
+      // Reset after pause
       const resetTimer = setTimeout(() => {
-        setVisibleLines(0);
-        setCurrentText("");
+        setDisplayedLines([]);
+        setCurrentLineIndex(0);
+        setCurrentCharIndex(0);
         setIsTyping(true);
-      }, 3000);
+      }, 4000);
       return () => clearTimeout(resetTimer);
     }
 
-    const line = codeLines[visibleLines];
-    let charIndex = 0;
+    const currentLine = codeLines[currentLineIndex];
 
-    const typeChar = () => {
-      if (charIndex <= line.text.length) {
-        setCurrentText(line.text.slice(0, charIndex));
-        charIndex++;
-        setTimeout(typeChar, 30 + Math.random() * 30);
-      } else {
-        setTimeout(() => {
-          setVisibleLines((prev) => prev + 1);
-          setCurrentText("");
-        }, 200);
-      }
-    };
+    if (currentCharIndex <= currentLine.text.length) {
+      const timer = setTimeout(() => {
+        const newText = currentLine.text.slice(0, currentCharIndex);
+        setDisplayedLines((prev) => {
+          const updated = [...prev];
+          updated[currentLineIndex] = newText;
+          return updated;
+        });
+        setCurrentCharIndex((prev) => prev + 1);
+      }, getTypingDelay());
+      return () => clearTimeout(timer);
+    } else {
+      // Line complete, move to next with natural pause
+      const pauseDelay = currentLine.type === "empty" ? 200 : 350;
+      const timer = setTimeout(() => {
+        setCurrentLineIndex((prev) => prev + 1);
+        setCurrentCharIndex(0);
+      }, pauseDelay);
+      return () => clearTimeout(timer);
+    }
+  }, [currentLineIndex, currentCharIndex, isTyping, getTypingDelay]);
 
-    const startDelay = setTimeout(typeChar, visibleLines === 0 ? 500 : 100);
-    return () => clearTimeout(startDelay);
-  }, [visibleLines]);
+  const renderLine = (text: string, lineIndex: number) => {
+    const lineConfig = codeLines[lineIndex];
+    if (!lineConfig) return null;
+
+    switch (lineConfig.type) {
+      case "keyword":
+        return (
+          <>
+            <span className="text-[#c586c0]">const</span>
+            <span className="text-[#9cdcfe]"> developer</span>
+            <span className="text-foreground/90"> = {"{"}</span>
+          </>
+        );
+      case "property":
+        if (text.includes("name:")) {
+          return (
+            <>
+              <span className="text-[#9cdcfe]">  name</span>
+              <span className="text-foreground/60">: </span>
+              <span className="text-[#ce9178]">"Ram Krishna"</span>
+              <span className="text-foreground/60">,</span>
+            </>
+          );
+        }
+        if (text.includes("role:")) {
+          return (
+            <>
+              <span className="text-[#9cdcfe]">  role</span>
+              <span className="text-foreground/60">: </span>
+              <span className="text-[#ce9178]">"Full Stack Engineer"</span>
+              <span className="text-foreground/60">,</span>
+            </>
+          );
+        }
+        if (text.includes("stack:")) {
+          return (
+            <>
+              <span className="text-[#9cdcfe]">  stack</span>
+              <span className="text-foreground/60">: [</span>
+              <span className="text-[#ce9178]">"React"</span>
+              <span className="text-foreground/60">, </span>
+              <span className="text-[#ce9178]">"Node.js"</span>
+              <span className="text-foreground/60">, </span>
+              <span className="text-[#ce9178]">"MongoDB"</span>
+              <span className="text-foreground/60">],</span>
+            </>
+          );
+        }
+        if (text.includes("passion:")) {
+          return (
+            <>
+              <span className="text-[#9cdcfe]">  passion</span>
+              <span className="text-foreground/60">: </span>
+              <span className="text-[#ce9178]">"Building scalable apps"</span>
+              <span className="text-foreground/60">,</span>
+            </>
+          );
+        }
+        return <span className="text-foreground/90">{text}</span>;
+      case "bracket":
+        return <span className="text-foreground/90">{"};"}</span>;
+      case "empty":
+        return <span>&nbsp;</span>;
+      case "method":
+        return (
+          <>
+            <span className="text-[#9cdcfe]">developer</span>
+            <span className="text-foreground/60">.</span>
+            <span className="text-[#dcdcaa]">build</span>
+            <span className="text-foreground/90">()</span>
+            <span className="text-foreground/60">;</span>
+          </>
+        );
+      case "comment":
+        return <span className="text-[#6a9955]">{text}</span>;
+      default:
+        return <span className="text-foreground/90">{text}</span>;
+    }
+  };
+
+  const isCurrentlyTypingLine = (index: number) => {
+    return index === currentLineIndex && isTyping;
+  };
 
   return (
-    <div className="w-64 h-80 md:w-80 md:h-96 bg-card border border-border rounded-lg overflow-hidden font-mono text-sm">
-      {/* Terminal Header */}
-      <div className="flex items-center gap-2 px-4 py-2 bg-muted/50 border-b border-border">
-        <div className="w-3 h-3 rounded-full bg-red-500/80" />
-        <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-        <div className="w-3 h-3 rounded-full bg-green-500/80" />
-        <span className="ml-2 text-xs text-muted-foreground">developer.ts</span>
-      </div>
+    <div className="w-72 h-80 md:w-96 md:h-[400px] relative group">
+      {/* Subtle glow effect */}
+      <div className="absolute -inset-1 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+      
+      {/* Terminal container */}
+      <div className="relative w-full h-full bg-[#1e1e1e] border border-[#3c3c3c]/50 rounded-xl overflow-hidden shadow-2xl shadow-black/20">
+        {/* Terminal Header */}
+        <div className="flex items-center gap-2 px-4 py-3 bg-[#252526] border-b border-[#3c3c3c]/50">
+          <div className="flex items-center gap-1.5">
+            <div className="w-3 h-3 rounded-full bg-[#ff5f57] hover:bg-[#ff5f57]/80 transition-colors" />
+            <div className="w-3 h-3 rounded-full bg-[#febc2e] hover:bg-[#febc2e]/80 transition-colors" />
+            <div className="w-3 h-3 rounded-full bg-[#28c840] hover:bg-[#28c840]/80 transition-colors" />
+          </div>
+          <div className="flex-1 text-center">
+            <span className="text-[#808080] text-xs font-mono tracking-wide">developer.ts</span>
+          </div>
+          <div className="w-12" /> {/* Spacer for symmetry */}
+        </div>
 
-      {/* Terminal Content */}
-      <div className="p-4 space-y-1 text-xs md:text-sm">
-        {codeLines.slice(0, visibleLines).map((line, index) => (
-          <div key={index} className="flex">
-            <span className="text-muted-foreground w-6 select-none">{index + 1}</span>
-            <code className="text-foreground">
-              {line.text.includes("const") && (
-                <>
-                  <span className="text-purple-400">const</span>
-                  {line.text.replace("const", "")}
-                </>
-              )}
-              {line.text.includes('name:') && (
-                <>
-                  <span className="text-foreground">  name: </span>
-                  <span className="text-primary">"Ram Krishna"</span>
-                  <span className="text-foreground">,</span>
-                </>
-              )}
-              {line.text.includes('role:') && (
-                <>
-                  <span className="text-foreground">  role: </span>
-                  <span className="text-primary">"Full Stack Engineer"</span>
-                  <span className="text-foreground">,</span>
-                </>
-              )}
-              {line.text.includes('skills:') && (
-                <>
-                  <span className="text-foreground">  skills: [</span>
-                  <span className="text-primary">"React"</span>
-                  <span className="text-foreground">, </span>
-                  <span className="text-primary">"Node.js"</span>
-                  <span className="text-foreground">, </span>
-                  <span className="text-primary">"MongoDB"</span>
-                  <span className="text-foreground">],</span>
-                </>
-              )}
-              {line.text.includes('passion:') && (
-                <>
-                  <span className="text-foreground">  passion: </span>
-                  <span className="text-primary">"Building scalable apps"</span>
-                  <span className="text-foreground">,</span>
-                </>
-              )}
-              {line.text === "};" && <span className="text-foreground">{"}"}</span>}
-              {line.text === "" && <span>&nbsp;</span>}
-              {line.text.includes('.code()') && (
-                <>
-                  <span className="text-blue-400">developer</span>
-                  <span className="text-foreground">.</span>
-                  <span className="text-yellow-400">code</span>
-                  <span className="text-foreground">();</span>
-                </>
-              )}
-              {line.text.includes('// Output') && (
-                <span className="text-muted-foreground">{line.text}</span>
-              )}
-            </code>
-          </div>
-        ))}
-        
-        {/* Current typing line */}
-        {visibleLines < codeLines.length && (
-          <div className="flex">
-            <span className="text-muted-foreground w-6 select-none">{visibleLines + 1}</span>
-            <code className="text-foreground">
-              {currentText}
-              <span className="inline-block w-2 h-4 bg-primary ml-0.5 animate-pulse" />
-            </code>
-          </div>
-        )}
+        {/* Terminal Content */}
+        <div className="p-5 font-mono text-[13px] leading-relaxed space-y-0.5 h-[calc(100%-48px)] overflow-hidden">
+          {displayedLines.map((text, index) => {
+            const isComplete = index < currentLineIndex;
+            const isTypingThisLine = isCurrentlyTypingLine(index);
+            
+            return (
+              <div
+                key={index}
+                className={`flex items-center min-h-[24px] transition-opacity duration-200 ${
+                  isComplete ? "opacity-100" : "opacity-90"
+                }`}
+                style={{
+                  animation: isComplete ? "line-appear 0.3s ease-out forwards" : undefined,
+                }}
+              >
+                <span className="text-[#858585] w-6 select-none text-right mr-4 text-xs">
+                  {index + 1}
+                </span>
+                <code className="flex-1">
+                  {isComplete ? (
+                    renderLine(codeLines[index].text, index)
+                  ) : (
+                    <>
+                      <span className="text-foreground/80">{text}</span>
+                      {isTypingThisLine && (
+                        <span className="inline-block w-[2px] h-[18px] bg-[#aeafad] ml-[1px] translate-y-[3px] animate-cursor-blink" />
+                      )}
+                    </>
+                  )}
+                </code>
+              </div>
+            );
+          })}
+          
+          {/* Show cursor on new line when starting */}
+          {displayedLines.length === 0 && isTyping && (
+            <div className="flex items-center min-h-[24px]">
+              <span className="text-[#858585] w-6 select-none text-right mr-4 text-xs">1</span>
+              <span className="inline-block w-[2px] h-[18px] bg-[#aeafad] animate-cursor-blink" />
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

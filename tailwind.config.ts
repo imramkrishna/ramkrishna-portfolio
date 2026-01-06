@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        mono: ["'Fira Code'", "monospace"],
+        mono: ["'JetBrains Mono'", "'Fira Code'", "monospace"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -87,6 +87,14 @@ export default {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-10px)" },
         },
+        "cursor-blink": {
+          "0%, 50%": { opacity: "1" },
+          "51%, 100%": { opacity: "0" },
+        },
+        "line-appear": {
+          "0%": { opacity: "0", transform: "translateY(4px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -94,6 +102,8 @@ export default {
         "fade-in": "fade-in 0.5s ease-out forwards",
         "fade-in-left": "fade-in-left 0.5s ease-out forwards",
         "float": "float 3s ease-in-out infinite",
+        "cursor-blink": "cursor-blink 1s step-end infinite",
+        "line-appear": "line-appear 0.3s ease-out forwards",
       },
     },
   },
