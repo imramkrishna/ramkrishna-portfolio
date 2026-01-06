@@ -19,7 +19,6 @@ const Index = () => {
         <Quote />
         <ProjectsPreview />
         <SkillsSection />
-        <AboutPreview />
         <ContactsPreview />
       </main>
       

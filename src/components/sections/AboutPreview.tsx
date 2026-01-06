@@ -41,11 +41,11 @@ const AboutPreview = () => {
           </div>
 
           {/* Image placeholder */}
-          <div className="relative flex justify-center lg:justify-end">
+          {/* <div className="relative flex justify-center lg:justify-end">
             <div className="w-64 h-80 bg-secondary border border-border flex items-center justify-center">
               <span className="text-muted-foreground text-6xl">🧑‍💻</span>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
