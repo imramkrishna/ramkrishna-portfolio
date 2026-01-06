@@ -38,11 +38,11 @@ const Hero = () => {
             
             {/* Profile image */}
             <div className="relative">
-              <div className="w-64 h-80 md:w-72 md:h-96 bg-gradient-to-b from-primary/20 to-transparent border border-border flex items-end justify-center overflow-hidden">
+              <div className="w-64 h-80 md:w-72 md:h-96 flex items-end justify-center">
                 <img 
                   src={profileImage} 
                   alt="Ram Krishna" 
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-full object-contain object-bottom"
                 />
               </div>
               

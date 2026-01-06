@@ -77,11 +77,11 @@ const About = () => {
 
               {/* Profile Image */}
               <div className="relative flex justify-center lg:justify-end">
-                <div className="w-72 h-96 bg-gradient-to-b from-primary/20 to-transparent border border-border flex items-end justify-center overflow-hidden">
+                <div className="w-72 h-96 flex items-end justify-center">
                   <img 
                     src={profileImage} 
                     alt="Ram Krishna" 
-                    className="w-full h-full object-cover object-top"
+                    className="w-full h-full object-contain object-bottom"
                   />
                 </div>
               </div>
