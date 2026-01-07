@@ -9,13 +9,13 @@ const Hero = () => {
           {/* Left Content */}
           <div className="space-y-6 animate-fade-in">
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-semibold leading-tight">
-              Ram Krishna is a{" "}
+              Ram Krishna Yadav is a{" "}
               <span className="text-primary">Full Stack Engineer</span> and{" "}
               <span className="text-primary">MERN specialist</span>
             </h1>
             <p className="text-muted-foreground text-base max-w-lg">
-              He crafts scalable web applications with modern technologies, 
-              RESTful APIs, and cloud infrastructure. Experienced in end-to-end 
+              He crafts scalable web applications with modern technologies,
+              RESTful APIs, and cloud infrastructure. Experienced in end-to-end
               application lifecycle from development to production deployment.
             </p>
             <a
@@ -29,13 +29,13 @@ const Hero = () => {
           {/* Right Content - Image and decorations */}
           <div className="relative flex justify-center lg:justify-end">
             {/* Decorative elements */}
-            <DecorativeDots 
-              rows={5} 
-              cols={5} 
-              className="absolute -top-8 -right-4 opacity-50" 
+            <DecorativeDots
+              rows={5}
+              cols={5}
+              className="absolute -top-8 -right-4 opacity-50"
             />
             <DecorativeSquare className="absolute -bottom-4 -left-8 opacity-30" />
-            
+
             {/* Terminal Animation */}
             <div className="relative">
               <TerminalAnimation />
