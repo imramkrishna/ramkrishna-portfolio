@@ -2,7 +2,7 @@ import Navbar from "@/components/layout/Navbar";
 import Sidebar from "@/components/layout/Sidebar";
 import Footer from "@/components/layout/Footer";
 import SectionHeader from "@/components/shared/SectionHeader";
-import { MessageCircle, Mail, Github, Linkedin } from "lucide-react";
+import { MessageCircle, Mail, Github, Linkedin, Send } from "lucide-react";
 import { DecorativeDots } from "@/components/shared/DecorativeElements";
 
 const socialLinks = [
@@ -37,22 +37,58 @@ const Contacts = () => {
 
           {/* Contact Info */}
           <section className="mb-16">
-            <div className="grid lg:grid-cols-2 gap-12">
-              {/* Message */}
-              <div className="text-muted-foreground space-y-4">
-                <p>
-                  I'm interested in freelance opportunities – especially ambitious or 
-                  large projects. However, if you have other request or question, 
-                  don't hesitate to contact me.
-                </p>
-                <p>
-                  Whether you have a project in mind, a job opportunity, or just want 
-                  to say hi, feel free to reach out. I'll do my best to respond as 
-                  quickly as possible!
-                </p>
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+              {/* Left - Profile Picture + Message */}
+              <div className="space-y-6 flex flex-col items-center text-center">
+                {/* Rounded Profile Picture - Above Text */}
+                <div className="flex justify-center">
+                  <div className="relative group">
+                    {/* Outer glow */}
+                    <div className="absolute inset-0 rounded-full bg-primary/10 blur-2xl scale-125" />
+                    
+                    {/* Decorative rings */}
+                    <div className="absolute inset-0 rounded-full border border-primary/20 scale-[1.15] animate-pulse" />
+                    <div className="absolute inset-0 rounded-full border border-primary/10 scale-[1.25]" />
+                    
+                    {/* Profile Image */}
+                    <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden border-4 border-primary/40 shadow-xl shadow-primary/20 group-hover:border-primary/60 transition-all duration-500">
+                      <img
+                        src="/pp.jpeg"
+                        alt="Ram Krishna Yadav"
+                        className="w-full h-full object-cover object-top grayscale-[30%] hover:grayscale-0 transition-all duration-500 group-hover:scale-110"
+                      />
+                    </div>
+                    
+                    {/* Status indicator */}
+                    <div className="absolute bottom-1 right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-background animate-pulse" title="Available for work" />
+                  </div>
+                </div>
+
+                {/* Message */}
+                <div className="text-muted-foreground space-y-4">
+                  <p className="text-lg">
+                    I'm interested in freelance opportunities – especially ambitious or 
+                    large projects. However, if you have other request or question, 
+                    don't hesitate to contact me.
+                  </p>
+                  <p>
+                    Whether you have a project in mind, a job opportunity, or just want 
+                    to say hi, feel free to reach out. I'll do my best to respond as 
+                    quickly as possible!
+                  </p>
+                </div>
+                
+                {/* CTA Button */}
+                <a 
+                  href="mailto:itsramky234@gmail.com"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+                >
+                  <Send size={18} />
+                  <span>Send me an email</span>
+                </a>
               </div>
 
-              {/* Contact Cards */}
+              {/* Right - Contact Cards */}
               <div>
                 <SectionHeader title="message-me-here" showLine={false} />
                 <div className="space-y-4">

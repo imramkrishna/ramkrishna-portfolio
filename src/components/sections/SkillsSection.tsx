@@ -5,23 +5,23 @@ import { DecorativeDots, DecorativeCross } from "../shared/DecorativeElements";
 const skillsData = [
   {
     title: "Languages",
-    skills: ["JavaScript", "TypeScript", "Python", "Node.js"],
+    skills: ["JavaScript", "TypeScript", "Python", "C++"],
+  },
+  {
+    title: "Frontend",
+    skills: ["React", "Redux Toolkit", "Tailwind CSS", "HTML5"],
+  },
+  {
+    title: "Backend",
+    skills: ["Node.js", "Express.js", "Elysia.js", "REST APIs", "JWT", "WebSockets"],
   },
   {
     title: "Databases",
-    skills: ["MongoDB", "PostgreSQL", "MySQL"],
+    skills: ["PostgreSQL", "MongoDB", "MySQL", "ORMs"],
   },
   {
-    title: "Tools",
-    skills: ["Git", "Vercel", "Azure", "VPS Hosting", "Figma"],
-  },
-  {
-    title: "Other",
-    skills: ["REST APIs", "GraphQL", "JWT", "OAuth", "WebSockets", "SEO"],
-  },
-  {
-    title: "Frameworks",
-    skills: ["React", "Express.js", "Next.js", "Tailwind", "Redux", "Bootstrap", "Context API"],
+    title: "Systems & Tools",
+    skills: ["Worker Threads", "Event-Driven", "Docker", "Git", "VPS Deployment", "Jest Testing", "npm"],
   },
 ];
 
@@ -39,7 +39,7 @@ const SkillsSection = () => {
       <div className="container mx-auto px-4 md:px-8 lg:px-16">
         <SectionHeader title="skills" />
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
           {skillsData.map((category) => (
             <SkillCategory
               key={category.title}

@@ -4,23 +4,13 @@ import Footer from "@/components/layout/Footer";
 import SectionHeader from "@/components/shared/SectionHeader";
 import SkillCategory from "@/components/shared/SkillCategory";
 import { DecorativeDots, DecorativeSquare } from "@/components/shared/DecorativeElements";
-import TerminalAnimation from "@/components/shared/TerminalAnimation";
 
 const skillsData = [
-  { title: "Languages", skills: ["JavaScript", "TypeScript", "Python", "Node.js"] },
-  { title: "Databases", skills: ["MongoDB", "PostgreSQL", "MySQL"] },
-  { title: "Tools", skills: ["Git", "Vercel", "Azure", "VPS Hosting", "Figma"] },
-  { title: "Frameworks", skills: ["React", "Express.js", "Next.js", "Tailwind", "Redux", "Bootstrap"] },
-  { title: "Other", skills: ["REST APIs", "GraphQL", "JWT", "OAuth", "WebSockets", "SEO"] },
-];
-
-const funFacts = [
-  "I like winter more than summer",
-  "My favorite movie is The Dark Knight",
-  "I think mass of an mass doesn't mass",
-  "My favorite anime is One Piece",
-  "I prefer backend but also enjoy frontend work",
-  "I love exploring new technologies and frameworks",
+  { title: "Languages", skills: ["JavaScript", "TypeScript", "Python", "C++"] },
+  { title: "Frontend", skills: ["React", "Redux Toolkit", "Tailwind CSS", "HTML5"] },
+  { title: "Backend", skills: ["Node.js", "Express.js", "Elysia.js", "REST APIs", "JWT", "WebSockets"] },
+  { title: "Databases", skills: ["PostgreSQL", "MongoDB", "MySQL", "ORMs"] },
+  { title: "Systems & Tools", skills: ["Worker Threads", "Event-Driven", "Docker", "Git", "VPS Deployment", "Jest Testing", "npm"] },
 ];
 
 const About = () => {
@@ -55,8 +45,10 @@ const About = () => {
                 <div>
                   <h3 className="text-xl font-semibold text-foreground mb-2">Who am I?</h3>
                   <p>
-                    Hello, I'm Ram Krishna Yadav! I'm a Full Stack Engineer specializing in scalable web application
-                    development. I specialize in the MERN stack (MongoDB, Express.js, React, and Node.js).
+                    Hello, I'm Ram Krishna Yadav! Full Stack Software Developer with strong hands-on experience building real-time and production-grade web systems. Creator of an open-source JavaScript thread-pool library with 6,000+ npm downloads, demonstrating solid understanding of concurrency and worker architectures.
+                  </p>
+                  <p className="mt-2">
+                    Experienced in designing scalable REST APIs, WebSocket-based real-time systems, and role-based platforms using TypeScript, Node.js, and PostgreSQL.
                   </p>
                 </div>
 
@@ -83,38 +75,48 @@ const About = () => {
                 </div>
               </div>
 
-              {/* Terminal Animation */}
+              {/* Profile Image */}
               <div className="relative flex justify-center lg:justify-end">
-                <TerminalAnimation />
+                <div className="relative group">
+                  {/* Decorative elements */}
+                  <DecorativeDots
+                    rows={4}
+                    cols={4}
+                    className="absolute -top-4 -right-4 opacity-50 z-10"
+                  />
+                  <DecorativeSquare className="absolute -bottom-4 -left-4 opacity-30 z-10" />
+                  
+                  {/* Image Container */}
+                  <div className="relative">
+                    {/* Background frame */}
+                    <div className="absolute inset-0 border-2 border-primary translate-x-4 translate-y-4 z-0" />
+                    
+                    {/* Main Image */}
+                    <div className="relative z-10 w-64 h-72 sm:w-72 sm:h-80 md:w-80 md:h-96 lg:w-72 lg:h-80 xl:w-80 xl:h-96 overflow-hidden border-2 border-primary/50 bg-background">
+                      <img
+                        src="/pp.jpeg"
+                        alt="Ram Krishna Yadav"
+                        className="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
+                      />
+                      {/* Overlay gradient */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent opacity-50 group-hover:opacity-20 transition-opacity duration-500" />
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
 
           {/* Skills Section */}
-          <section className="mb-16">
+          <section>
             <SectionHeader title="skills" />
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
               {skillsData.map((category) => (
                 <SkillCategory
                   key={category.title}
                   title={category.title}
                   skills={category.skills}
                 />
-              ))}
-            </div>
-          </section>
-
-          {/* Fun Facts */}
-          <section>
-            <SectionHeader title="my-fun-facts" />
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {funFacts.map((fact, index) => (
-                <div key={index} className="border border-border p-4">
-                  <p className="text-muted-foreground">
-                    <span className="text-primary mr-2">{index + 1}.</span>
-                    {fact}
-                  </p>
-                </div>
               ))}
             </div>
           </section>

@@ -5,34 +5,29 @@ import { DecorativeDots, DecorativeSquare } from "../shared/DecorativeElements";
 
 const featuredProjects = [
   {
+    title: "thready-js",
+    description: "Open-source NPM library with 10k+ downloads. Type-safe thread-pool abstraction for Web Workers and Node.js with zero dependencies.",
+    image: "/thready.png",
+    technologies: ["TypeScript", "NPM Package", "Web Workers"],
+    liveUrl: "https://www.npmjs.com/package/thready-js",
+    githubUrl: "https://github.com/imramkrishna/thready-js",
+  },
+  {
+    title: "ChessOnline",
+    description: "Real-time multiplayer chess game with private rooms, drag-and-drop gameplay, move validation, and live score tracking.",
+    image: "/chess.png",
+    technologies: ["React", "Node.js", "WebSocket", "MongoDB"],
+    liveUrl: "https://chess-online-five.vercel.app/",
+    githubUrl: "https://github.com/imramkrishna/ChessOnline",
+  },
+  {
     title: "CRM System",
     description: "Medical equipment distribution platform with multi-role authentication, role-based access control, and real-time inventory tracking.",
     image: "/medcrm.png",
     technologies: ["Next.js", "TypeScript", "PostgreSQL", "Prisma"],
-    liveUrl: "#",
-    githubUrl: "#",
+    liveUrl: "https://crm-system-drab.vercel.app/",
+    githubUrl: "https://github.com/imramkrishna/MedCRM",
   },
-  {
-    title: "WMS System",
-    description: "Warehouse management system with real-time inventory tracking, order management, and live analytics dashboard.",
-    image: "/wms.png",
-    technologies: ["React", "TypeScript", "Node.js", "PostgreSQL"],
-    liveUrl: "#",
-    githubUrl: "#",
-  },
-  {
-    title: "XCodeGen AI",
-    description: "AI-powered developer tool featuring chat mode, project structure generation, and custom file system modification.",
-    image: "/xcodegen.png",
-    technologies: ["React", "Node.js", "MongoDB", "Llama"],
-    liveUrl: "#",
-    githubUrl: "#",
-  },
-];
-
-const smallProjects = [
-  { title: "ChessOnline", tech: "React WebSocket MongoDB" },
-  { title: "ChatConnect", tech: "React WebSocket Express" },
 ];
 
 const ProjectsPreview = () => {
@@ -59,27 +54,10 @@ const ProjectsPreview = () => {
         </div>
 
         {/* Featured Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {featuredProjects.map((project) => (
             <ProjectCard key={project.title} {...project} />
           ))}
-        </div>
-
-        {/* Small Projects */}
-        <div className="border border-border p-6">
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="text-lg font-semibold text-foreground">
-              <span className="text-primary">#</span>small-projects
-            </h3>
-          </div>
-          <div className="grid md:grid-cols-3 gap-4">
-            {smallProjects.map((project) => (
-              <div key={project.title} className="border border-border p-4">
-                <p className="text-muted-foreground text-sm mb-2">{project.tech}</p>
-                <h4 className="text-foreground font-medium">{project.title}</h4>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>
