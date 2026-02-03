@@ -20,8 +20,8 @@ const Footer = () => {
                 <span>Krishna</span>
               </div>
             </div>
-            <a 
-              href="mailto:itsramky234@gmail.com" 
+            <a
+              href="mailto:itsramky234@gmail.com"
               className="text-muted-foreground text-sm hover:text-foreground transition-colors"
             >
               itsramky234@gmail.com
@@ -30,7 +30,7 @@ const Footer = () => {
 
           {/* Center - Description */}
           <p className="text-muted-foreground text-sm text-center">
-            Full Stack Software Developer based in Nepal
+            Full Stack Developer & <a href="https://zyotra.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Founder of Zyotra</a> • Based in Nepal
           </p>
 
           {/* Right side - Social */}

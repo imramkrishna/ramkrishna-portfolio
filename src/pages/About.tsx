@@ -45,7 +45,7 @@ const About = () => {
                 <div>
                   <h3 className="text-xl font-semibold text-foreground mb-2">Who am I?</h3>
                   <p>
-                    Hello, I'm Ram Krishna Yadav! Full Stack Software Developer with strong hands-on experience building real-time and production-grade web systems. Creator of an open-source JavaScript thread-pool library with 6,000+ npm downloads, demonstrating solid understanding of concurrency and worker architectures.
+                    Hello, I'm Ram Krishna Yadav! Full Stack Software Developer and <a href="https://zyotra.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Founder of Zyotra</a>{" "}— an automated deployment platform that deploys within a minute. I have strong hands-on experience building real-time and production-grade web systems. Creator of an open-source JavaScript thread-pool library with 6,000+ npm downloads, demonstrating solid understanding of concurrency and worker architectures.
                   </p>
                   <p className="mt-2">
                     Experienced in designing scalable REST APIs, WebSocket-based real-time systems, and role-based platforms using TypeScript, Node.js, and PostgreSQL.
@@ -54,6 +54,19 @@ const About = () => {
 
                 <div>
                   <h3 className="text-xl font-semibold text-foreground mb-2">Experience</h3>
+
+                  <div className="border-l-2 border-primary pl-4 mb-4">
+                    <h4 className="font-medium text-foreground">Founder</h4>
+                    <p className="text-sm text-primary">
+                      <a href="https://zyotra.com" target="_blank" rel="noopener noreferrer" className="hover:underline">Zyotra</a> | Feb 2025 - Present
+                    </p>
+                    <ul className="list-disc list-inside mt-2 space-y-1 text-sm">
+                      <li>Building an automated deployment platform that deploys applications within a minute</li>
+                      <li>Designing scalable infrastructure for seamless CI/CD workflows</li>
+                      <li>Developing intuitive developer experience for rapid application deployment</li>
+                    </ul>
+                  </div>
+
                   <div className="border-l-2 border-primary pl-4">
                     <h4 className="font-medium text-foreground">MERN Stack Intern</h4>
                     <p className="text-sm text-primary">Blue Fox Pvt. Ltd. | Oct 2024 - Dec 2024</p>
@@ -85,12 +98,12 @@ const About = () => {
                     className="absolute -top-4 -right-4 opacity-50 z-10"
                   />
                   <DecorativeSquare className="absolute -bottom-4 -left-4 opacity-30 z-10" />
-                  
+
                   {/* Image Container */}
                   <div className="relative">
                     {/* Background frame */}
                     <div className="absolute inset-0 border-2 border-primary translate-x-4 translate-y-4 z-0" />
-                    
+
                     {/* Main Image */}
                     <div className="relative z-10 w-64 h-72 sm:w-72 sm:h-80 md:w-80 md:h-96 lg:w-72 lg:h-80 xl:w-80 xl:h-96 overflow-hidden border-2 border-primary/50 bg-background">
                       <img
