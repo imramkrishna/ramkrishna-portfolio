@@ -40,26 +40,26 @@ const Hero = () => {
               Ram Krishna Yadav is a{" "}
               <span className="text-primary">Full Stack Software Engineer</span>,{" "}
               <a
-                href="https://zyotra.com"
+                href="https://venyxtech.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-primary hover:underline"
               >
-                Founder of Zyotra
+                CTO at Venyx Technology International
               </a>
             </h1>
             <p className="text-muted-foreground text-sm md:text-base max-w-lg">
               He crafts scalable web applications with modern technologies,
-              RESTful APIs, and cloud infrastructure. Founder of{" "}
+              RESTful APIs, and cloud infrastructure. CTO at{" "}
               <a
-                href="https://zyotra.com"
+                href="https://venyxtech.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-primary hover:underline"
               >
-                Zyotra{" "}
+                Venyx Technology International{" "}
               </a>
-              — an automated deployment platform that deploys within a minute.
+              , where he writes scalable code for local and international businesses, reviews codebases, and manages the software development lifecycle.
             </p>
             <div className="flex flex-wrap gap-4">
               <a

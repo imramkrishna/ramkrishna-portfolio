@@ -22,9 +22,11 @@ const AboutPreview = () => {
               Hello, I'm Ram Krishna!
             </p>
             <p>
-              I'm a Full Stack Engineer and <a href="https://zyotra.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Founder of Zyotra</a> — an automated deployment platform that deploys within a minute. I specialize in scalable web application
-              development and can develop responsive websites from scratch,
-              turning them into modern user-friendly web experiences.
+              I'm a Full Stack Engineer and{" "}
+              <a href="https://venyxtech.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                CTO at Venyx Technology International
+              </a>
+              . I write scalable code for local and international businesses, review codebases, and manage the software development lifecycle. I specialize in scalable web application development and can develop responsive websites from scratch, turning them into modern user-friendly web experiences.
             </p>
             <p>
               Transforming my creativity and knowledge into a website has been

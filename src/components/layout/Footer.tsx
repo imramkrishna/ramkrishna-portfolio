@@ -30,7 +30,7 @@ const Footer = () => {
 
           {/* Center - Description */}
           <p className="text-muted-foreground text-sm text-center">
-            Full Stack Developer & <a href="https://zyotra.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Founder of Zyotra</a> • Based in Nepal
+            Full Stack Developer & <a href="https://venyxtech.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">CTO at Venyx Technology International</a> • Based in Nepal
           </p>
 
           {/* Right side - Social */}

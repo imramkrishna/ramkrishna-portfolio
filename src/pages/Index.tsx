@@ -3,7 +3,6 @@ import Sidebar from "@/components/layout/Sidebar";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
 import Quote from "@/components/sections/Quote";
-import ProjectsPreview from "@/components/sections/ProjectsPreview";
 import SkillsSection from "@/components/sections/SkillsSection";
 import AboutPreview from "@/components/sections/AboutPreview";
 import ContactsPreview from "@/components/sections/ContactsPreview";
@@ -16,7 +15,6 @@ const Index = () => {
 
       <main className="pt-16 md:pl-16 lg:pl-24">
         <Hero />
-        <ProjectsPreview />
         <SkillsSection />
       </main>
 

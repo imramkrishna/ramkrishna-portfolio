@@ -45,7 +45,16 @@ const About = () => {
                 <div>
                   <h3 className="text-xl font-semibold text-foreground mb-2">Who am I?</h3>
                   <p>
-                    Hello, I'm Ram Krishna Yadav! Full Stack Software Developer and <a href="https://zyotra.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Founder of Zyotra</a>{" "}— an automated deployment platform that deploys within a minute. I have strong hands-on experience building real-time and production-grade web systems. Creator of an open-source JavaScript thread-pool library with 6,000+ npm downloads, demonstrating solid understanding of concurrency and worker architectures.
+                    Hello, I'm Ram Krishna Yadav! Full Stack Software Developer and{" "}
+                    <a
+                      href="https://venyxtech.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary hover:underline"
+                    >
+                      CTO at Venyx Technology International
+                    </a>
+                    . I work as a CTO and software engineer, writing scalable code for local and international businesses, reviewing codebases, and managing the full software development lifecycle. I have strong hands-on experience building real-time and production-grade web systems. Creator of an open-source JavaScript thread-pool library with 6,000+ npm downloads, demonstrating solid understanding of concurrency and worker architectures.
                   </p>
                   <p className="mt-2">
                     Experienced in designing scalable REST APIs, WebSocket-based real-time systems, and role-based platforms using TypeScript, Node.js, and PostgreSQL.
@@ -56,14 +65,14 @@ const About = () => {
                   <h3 className="text-xl font-semibold text-foreground mb-2">Experience</h3>
 
                   <div className="border-l-2 border-primary pl-4 mb-4">
-                    <h4 className="font-medium text-foreground">Founder</h4>
+                    <h4 className="font-medium text-foreground">CTO &amp; Software Engineer</h4>
                     <p className="text-sm text-primary">
-                      <a href="https://zyotra.com" target="_blank" rel="noopener noreferrer" className="hover:underline">Zyotra</a> | Feb 2025 - Present
+                      <a href="https://venyxtech.com" target="_blank" rel="noopener noreferrer" className="hover:underline">Venyx Technology International</a> | Feb 2025 - Present
                     </p>
                     <ul className="list-disc list-inside mt-2 space-y-1 text-sm">
-                      <li>Building an automated deployment platform that deploys applications within a minute</li>
-                      <li>Designing scalable infrastructure for seamless CI/CD workflows</li>
-                      <li>Developing intuitive developer experience for rapid application deployment</li>
+                      <li>Write scalable code for local and international businesses across web platforms</li>
+                      <li>Review codebases to improve quality, performance, and maintainability</li>
+                      <li>Manage end-to-end software development from planning to delivery</li>
                     </ul>
                   </div>
 
