@@ -45,16 +45,16 @@ const About = () => {
                 <div>
                   <h3 className="text-xl font-semibold text-foreground mb-2">Who am I?</h3>
                   <p>
-                    Hello, I'm Ram Krishna Yadav! Full Stack Software Developer and{" "}
+                    Hello, I'm Ram Krishna Yadav! Full Stack Software Engineer at{" "}
                     <a
                       href="https://venyxtech.com"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-primary hover:underline"
                     >
-                      CTO at Venyx Technology International
+                      Venyx Technology International
                     </a>
-                    . I work as a CTO and software engineer, writing scalable code for local and international businesses, reviewing codebases, and managing the full software development lifecycle. I have strong hands-on experience building real-time and production-grade web systems. Creator of an open-source JavaScript thread-pool library with 6,000+ npm downloads, demonstrating solid understanding of concurrency and worker architectures.
+                    . I work as a software engineer, writing scalable code for local and international businesses, reviewing codebases, and managing the full software development lifecycle. I have strong hands-on experience building real-time and production-grade web systems. Creator of an open-source JavaScript thread-pool library with 6,000+ npm downloads, demonstrating solid understanding of concurrency and worker architectures.
                   </p>
                   <p className="mt-2">
                     Experienced in designing scalable REST APIs, WebSocket-based real-time systems, and role-based platforms using TypeScript, Node.js, and PostgreSQL.
@@ -65,7 +65,7 @@ const About = () => {
                   <h3 className="text-xl font-semibold text-foreground mb-2">Experience</h3>
 
                   <div className="border-l-2 border-primary pl-4 mb-4">
-                    <h4 className="font-medium text-foreground">CTO &amp; Software Engineer</h4>
+                    <h4 className="font-medium text-foreground">Software Engineer</h4>
                     <p className="text-sm text-primary">
                       <a href="https://venyxtech.com" target="_blank" rel="noopener noreferrer" className="hover:underline">Venyx Technology International</a> | Feb 2025 - Present
                     </p>

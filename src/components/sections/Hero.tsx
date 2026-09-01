@@ -38,19 +38,19 @@ const Hero = () => {
 
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-semibold leading-tight">
               Ram Krishna Yadav is a{" "}
-              <span className="text-primary">Full Stack Software Engineer</span>,{" "}
+              <span className="text-primary">Full Stack Software Engineer</span>{" "}at{" "}
               <a
                 href="https://venyxtech.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-primary hover:underline"
               >
-                CTO at Venyx Technology International
+                Venyx Technology International
               </a>
             </h1>
             <p className="text-muted-foreground text-sm md:text-base max-w-lg">
               He crafts scalable web applications with modern technologies,
-              RESTful APIs, and cloud infrastructure. CTO at{" "}
+              RESTful APIs, and cloud infrastructure. Software Engineer at{" "}
               <a
                 href="https://venyxtech.com"
                 target="_blank"

@@ -22,9 +22,9 @@ const AboutPreview = () => {
               Hello, I'm Ram Krishna!
             </p>
             <p>
-              I'm a Full Stack Engineer and{" "}
+              I'm a Full Stack Software Engineer at{" "}
               <a href="https://venyxtech.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-                CTO at Venyx Technology International
+                Venyx Technology International
               </a>
               . I write scalable code for local and international businesses, review codebases, and manage the software development lifecycle. I specialize in scalable web application development and can develop responsive websites from scratch, turning them into modern user-friendly web experiences.
             </p>
