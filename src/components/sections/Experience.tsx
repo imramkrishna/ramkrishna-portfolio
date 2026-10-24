@@ -45,7 +45,11 @@ const Experience = ({ number = "04", className = "" }: { number?: string; classN
       <div className="mt-10 bg-[var(--rd-gray)] border-2 border-[#808080] p-[3px]" aria-hidden="true">
         <div className="flex gap-[5px] h-[18px]">
           {Array.from({ length: 36 }).map((_, i) => (
-            <i key={i} className={`flex-1 ${i < 30 ? "bg-[#0000ff]" : "bg-transparent"}`} />
+            <i
+              key={i}
+              style={{ "--seg-idx": i } as React.CSSProperties}
+              className={`rd-prog-seg flex-1 ${i < 30 ? "bg-[#0000ff]" : "bg-transparent"}`}
+            />
           ))}
         </div>
       </div>

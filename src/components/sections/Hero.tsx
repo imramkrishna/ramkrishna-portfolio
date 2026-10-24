@@ -74,7 +74,7 @@ const Hero = () => (
             <p className="text-sm">{s.note}</p>
             <div className={`rd-meter mt-2 ${s.color}`} aria-hidden="true">
               {Array.from({ length: 11 }).map((_, k) => (
-                <i key={k} />
+                <i key={k} style={{ "--seg-idx": k } as React.CSSProperties} />
               ))}
             </div>
           </div>

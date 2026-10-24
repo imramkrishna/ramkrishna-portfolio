@@ -85,9 +85,8 @@ const Footer = () => (
           ))}
         </div>
       </Window>
-      <div className="rd-well mt-4 px-4 py-3 flex flex-col sm:flex-row justify-between gap-2 font-mono text-[13px]">
+      <div className="rd-well mt-4 px-4 py-3 flex flex-col sm:flex-row  justify-center gap-2 font-mono text-[13px]">
         <span>© {new Date().getFullYear()} Ram Krishna Yadav. All rights reserved.</span>
-        <span>Built with React + Tailwind.</span>
       </div>
     </div>
   </footer>
