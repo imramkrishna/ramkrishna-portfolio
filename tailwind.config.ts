@@ -14,7 +14,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        mono: ["'JetBrains Mono'", "'Fira Code'", "monospace"],
+        mono: ["var(--dp-typography-mono)"],
+        sans: ["var(--dp-typography-interface)"],
+        display: ["var(--dp-typography-display)"],
       },
       colors: {
         border: "hsl(var(--border))",

@@ -29,7 +29,7 @@ const ContactsPreview = () => {
               {/* Profile Image */}
               <div className="relative w-36 h-36 sm:w-40 sm:h-40 rounded-full overflow-hidden border-4 border-primary/40 shadow-xl shadow-primary/20 group-hover:border-primary/60 transition-all duration-500">
                 <img
-                  src="/pp.jpeg"
+                  src="/pp.png"
                   alt="Ram Krishna Yadav"
                   className="w-full h-full object-cover object-top grayscale-[30%] hover:grayscale-0 transition-all duration-500 group-hover:scale-110"
                 />

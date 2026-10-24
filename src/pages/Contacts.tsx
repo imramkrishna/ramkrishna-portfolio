@@ -1,141 +1,75 @@
-import Navbar from "@/components/layout/Navbar";
-import Sidebar from "@/components/layout/Sidebar";
-import Footer from "@/components/layout/Footer";
-import SectionHeader from "@/components/shared/SectionHeader";
-import { MessageCircle, Mail, Github, Linkedin, Send } from "lucide-react";
-import { DecorativeDots } from "@/components/shared/DecorativeElements";
+import { Github, Linkedin, Mail, MessageCircle, Send } from "lucide-react";
+import PageShell from "@/components/layout/PageShell";
+import Window from "@/components/shared/Window";
+import Ticker from "@/components/shared/Ticker";
+import { EMAIL, socialLinks } from "@/data/profile";
 
-const socialLinks = [
-  { icon: Github, label: "GitHub", value: "imramkrishna", href: "https://github.com/imramkrishna" },
-  { icon: Linkedin, label: "LinkedIn", value: "ramkrishnaprofile", href: "https://linkedin.com/in/ramkrishnaprofile" },
-  { icon: MessageCircle, label: "Discord", value: "@ramkrishna", href: "#" },
-  { icon: Mail, label: "Email", value: "itsramky234@gmail.com", href: "mailto:itsramky234@gmail.com" },
-];
+const icons = { GitHub: Github, LinkedIn: Linkedin, Discord: MessageCircle, Email: Mail } as const;
 
-const Contacts = () => {
-  return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
-      <Sidebar />
-      
-      <main className="pt-24 md:pl-16 lg:pl-24 pb-16">
-        <div className="container mx-auto px-4 md:px-8 lg:px-16 relative">
-          {/* Decorative elements */}
-          <DecorativeDots 
-            rows={5} 
-            cols={5} 
-            className="absolute top-40 right-8 opacity-30 hidden lg:grid" 
-          />
-          
-          {/* Page Header */}
-          <div className="mb-12">
-            <h1 className="text-3xl md:text-4xl font-semibold mb-4">
-              <span className="text-primary">/</span>contacts
-            </h1>
-            <p className="text-muted-foreground">Get in touch with me</p>
-          </div>
-
-          {/* Contact Info */}
-          <section className="mb-16">
-            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
-              {/* Left - Profile Picture + Message */}
-              <div className="space-y-6 flex flex-col items-center text-center">
-                {/* Rounded Profile Picture - Above Text */}
-                <div className="flex justify-center">
-                  <div className="relative group">
-                    {/* Outer glow */}
-                    <div className="absolute inset-0 rounded-full bg-primary/10 blur-2xl scale-125" />
-                    
-                    {/* Decorative rings */}
-                    <div className="absolute inset-0 rounded-full border border-primary/20 scale-[1.15] animate-pulse" />
-                    <div className="absolute inset-0 rounded-full border border-primary/10 scale-[1.25]" />
-                    
-                    {/* Profile Image */}
-                    <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden border-4 border-primary/40 shadow-xl shadow-primary/20 group-hover:border-primary/60 transition-all duration-500">
-                      <img
-                        src="/pp.jpeg"
-                        alt="Ram Krishna Yadav"
-                        className="w-full h-full object-cover object-top grayscale-[30%] hover:grayscale-0 transition-all duration-500 group-hover:scale-110"
-                      />
-                    </div>
-                    
-                    {/* Status indicator */}
-                    <div className="absolute bottom-1 right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-background animate-pulse" title="Available for work" />
-                  </div>
-                </div>
-
-                {/* Message */}
-                <div className="text-muted-foreground space-y-4">
-                  <p className="text-lg">
-                    I'm interested in freelance opportunities – especially ambitious or 
-                    large projects. However, if you have other request or question, 
-                    don't hesitate to contact me.
-                  </p>
-                  <p>
-                    Whether you have a project in mind, a job opportunity, or just want 
-                    to say hi, feel free to reach out. I'll do my best to respond as 
-                    quickly as possible!
-                  </p>
-                </div>
-                
-                {/* CTA Button */}
-                <a 
-                  href="mailto:itsramky234@gmail.com"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
-                >
-                  <Send size={18} />
-                  <span>Send me an email</span>
-                </a>
-              </div>
-
-              {/* Right - Contact Cards */}
-              <div>
-                <SectionHeader title="message-me-here" showLine={false} />
-                <div className="space-y-4">
-                  {socialLinks.map((link) => (
-                    <a
-                      key={link.label}
-                      href={link.href}
-                      target={link.href.startsWith("http") ? "_blank" : undefined}
-                      rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                      className="flex items-center gap-4 p-4 border border-border hover:border-primary transition-colors group"
-                    >
-                      <link.icon size={24} className="text-muted-foreground group-hover:text-primary transition-colors" />
-                      <div>
-                        <p className="text-muted-foreground text-sm">{link.label}</p>
-                        <p className="text-foreground">{link.value}</p>
-                      </div>
-                    </a>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* All Socials */}
-          <section>
-            <SectionHeader title="all-media" />
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {socialLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  target={link.href.startsWith("http") ? "_blank" : undefined}
-                  rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="flex items-center gap-3 p-4 border border-border hover:border-primary transition-colors"
-                >
-                  <link.icon size={20} className="text-muted-foreground" />
-                  <span className="text-foreground">{link.label}</span>
-                </a>
-              ))}
-            </div>
-          </section>
+const Contacts = () => (
+  <PageShell>
+    <Window title="CONTACTS.EXE" labelledBy="contacts-title">
+      <div className="rd-pane bg-[var(--rd-yellow)] p-6 sm:p-10 grid lg:grid-cols-[1.2fr_1fr] gap-8 items-end">
+        <div>
+          <p className="rd-num">01 / GET IN TOUCH</p>
+          <h1 id="contacts-title" className="rd-hero-title mt-6 text-[clamp(3rem,8vw,6.5rem)]">
+            Let's talk
+          </h1>
+          <p className="mt-6 text-xl leading-snug max-w-[40ch]">
+            I'm interested in freelance opportunities, especially ambitious or large projects.
+            If you have any other request or question, don't hesitate to contact me.
+          </p>
         </div>
-      </main>
-      
-      <Footer />
-    </div>
-  );
-};
+        <div className="flex flex-col items-start lg:items-end gap-4">
+          <a href={`mailto:${EMAIL}`} className="rd-btn rd-btn-primary">
+            <Send size={18} aria-hidden="true" />
+            Send me an email
+          </a>
+          <p className="font-mono text-sm lg:text-right">I'll respond as quickly as possible.</p>
+        </div>
+      </div>
+    </Window>
+
+    <Ticker text="Whether it's a project, a job, or just a hello" />
+
+    <Window title="CONTACTS / DIRECTORY" className="lg:w-[92%] lg:ml-auto" labelledBy="reach-title">
+      <div className="grid lg:grid-cols-[minmax(0,320px)_1fr] gap-[5px]">
+        <div className="bg-[var(--rd-purple)] text-white p-6 sm:p-8 flex flex-col gap-6 min-h-[240px]">
+          <p className="rd-num">02</p>
+          <h2 id="reach-title" className="rd-disp rd-shadow-text text-[clamp(2rem,3.2vw,2.8rem)] uppercase !leading-[.92]">
+            Where to find me
+          </h2>
+          <span className="mt-auto w-24 h-24 border-2 border-black bg-[var(--rd-yellow)] overflow-hidden shadow-[3px_3px_0_#000]">
+            <img src="/pp.png" alt="" className="w-full h-full object-cover object-top" />
+          </span>
+        </div>
+        <ul className="bg-white border-2 border-[#808080] grid sm:grid-cols-2">
+          {socialLinks.map((link) => {
+            const Icon = icons[link.label as keyof typeof icons];
+            const external = link.href.startsWith("http");
+            return (
+              <li key={link.label} className="rd-grid-cell">
+                <a
+                  href={link.href}
+                  target={external ? "_blank" : undefined}
+                  rel={external ? "noopener noreferrer" : undefined}
+                  className="group flex items-start gap-4 p-6 h-full hover:bg-[var(--rd-yellow)]"
+                >
+                  <span className="flex-none w-11 h-11 border-2 border-black bg-[var(--rd-yellow)] group-hover:bg-white flex items-center justify-center shadow-[2px_2px_0_#000]">
+                    <Icon size={22} aria-hidden="true" />
+                  </span>
+                  <span className="min-w-0">
+                    <span className="block text-xl font-semibold leading-tight">{link.label}</span>
+                    <span className="block mt-1 text-[17px] break-all underline underline-offset-4">{link.value}</span>
+                  </span>
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </Window>
+  </PageShell>
+);
 
 export default Contacts;

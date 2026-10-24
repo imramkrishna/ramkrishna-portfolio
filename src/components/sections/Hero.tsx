@@ -1,127 +1,87 @@
-import { DecorativeDots, DecorativeSquare } from "../shared/DecorativeElements";
 import { FileText } from "lucide-react";
+import Window from "@/components/shared/Window";
 
-const Hero = () => {
-  return (
-    <section className="min-h-[60vh] flex items-center py-12 relative overflow-hidden">
-      {/* Background decorative elements */}
-      <DecorativeDots
-        rows={5}
-        cols={5}
-        className="absolute top-20 right-[15%] opacity-20 hidden lg:grid"
-      />
-      <DecorativeSquare className="absolute bottom-20 right-[25%] opacity-15 hidden lg:block" />
-      <DecorativeDots
-        rows={3}
-        cols={3}
-        className="absolute bottom-32 right-[10%] opacity-15 hidden lg:grid"
-      />
+const stats = [
+  {
+    label: "Salesient (RAG + MCP)",
+    value: "120+ tools",
+    note: "768-D pgvector search & multi-model routing",
+    color: "text-[var(--rd-purple)]",
+  },
+  {
+    label: "Zyotra (Self-Hosted PaaS)",
+    value: "Up to 80%",
+    note: "Lower infra cost on bare-metal servers",
+    color: "text-[var(--rd-teal)]",
+  },
+  {
+    label: "Core Stack",
+    value: "TS · Python",
+    note: "Next.js, PostgreSQL, pgvector, Redis, Docker",
+    color: "text-[var(--rd-magenta)]",
+  },
+];
 
-      <div className="container mx-auto px-4 md:px-8 lg:px-16">
-        <div className="grid lg:grid-cols-2 gap-8 items-center">
-          {/* Left Content */}
-          <div className="space-y-5 animate-fade-in">
-            {/* Profile Image - Mobile/Tablet */}
-            <div className="lg:hidden flex justify-center mb-4">
-              <div className="relative">
-                <div className="w-40 h-40 sm:w-48 sm:h-48 rounded-full overflow-hidden border-4 border-primary/30 shadow-xl shadow-primary/20">
-                  <img
-                    src="/pp.jpeg"
-                    alt="Ram Krishna Yadav"
-                    className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                {/* Decorative ring */}
-                <div className="absolute inset-0 rounded-full border-2 border-primary/20 scale-110 animate-pulse" />
-              </div>
-            </div>
-
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-semibold leading-tight">
-              Ram Krishna Yadav is a{" "}
-              <span className="text-primary">Full Stack Software Engineer</span>{" "}at{" "}
-              <a
-                href="https://venyxtech.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary hover:underline"
-              >
-                Venyx Technology International
-              </a>
-            </h1>
-            <p className="text-muted-foreground text-sm md:text-base max-w-lg">
-              He crafts scalable web applications with modern technologies,
-              RESTful APIs, and cloud infrastructure. Software Engineer at{" "}
-              <a
-                href="https://venyxtech.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary hover:underline"
-              >
-                Venyx Technology International{" "}
-              </a>
-              , where he writes scalable code for local and international businesses, reviews codebases, and manages the software development lifecycle.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <a
-                href="/contacts"
-                className="inline-block px-5 py-2.5 border border-primary text-foreground hover:bg-primary/10 transition-colors text-sm"
-              >
-                Contact me!!
-              </a>
-              <a
-                href="/Resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-primary-foreground hover:bg-primary/90 transition-colors text-sm"
-              >
-                <FileText size={16} />
-                Resume
-              </a>
-            </div>
-          </div>
-
-          {/* Right Content - Image with decorations */}
-          <div className="relative hidden lg:flex justify-center items-center">
-            {/* Outer glow effect */}
-            <div className="absolute w-72 h-72 xl:w-80 xl:h-80 rounded-full bg-primary/5 blur-3xl" />
-
-            <div className="relative group">
-              {/* Decorative rings */}
-              <div className="absolute inset-0 rounded-full border border-primary/20 scale-[1.15] animate-pulse" />
-              <div className="absolute inset-0 rounded-full border border-primary/10 scale-[1.25]" />
-              <div className="absolute inset-0 rounded-full border border-primary/5 scale-[1.35]" />
-
-              {/* Decorative dots around the circle */}
-              <DecorativeDots
-                rows={3}
-                cols={3}
-                className="absolute -top-8 -right-8 opacity-40 z-10"
-              />
-              <DecorativeDots
-                rows={2}
-                cols={2}
-                className="absolute -bottom-6 -left-6 opacity-30 z-10"
-              />
-
-              {/* Profile Image Container */}
-              <div className="relative w-56 h-56 xl:w-64 xl:h-64 rounded-full overflow-hidden border-4 border-primary/40 shadow-2xl shadow-primary/20 group-hover:border-primary/60 transition-all duration-500">
-                <img
-                  src="/pp.jpeg"
-                  alt="Ram Krishna Yadav"
-                  className="w-full h-full object-cover object-top grayscale-[30%] hover:grayscale-0 transition-all duration-500 group-hover:scale-110"
-                />
-                {/* Overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent opacity-60 group-hover:opacity-0 transition-opacity duration-500" />
-              </div>
-
-              {/* Status indicator */}
-              <div className="absolute bottom-4 right-4 w-5 h-5 bg-green-500 rounded-full border-4 border-background animate-pulse" title="Available for work" />
-            </div>
+const Hero = () => (
+  <section className="grid gap-8 lg:gap-10 lg:grid-cols-[1fr_340px] xl:grid-cols-[1fr_380px] items-start">
+    <Window title="RAM.EXE" labelledBy="hero-title">
+      <div className="rd-pane bg-[var(--rd-yellow)] p-5 sm:p-8 flex flex-col min-h-[460px]">
+        <p className="rd-num">01 / PORTFOLIO</p>
+        <h1
+          id="hero-title"
+          className="rd-hero-title mt-6 text-[clamp(2.8rem,8vw,7.4rem)]"
+        >
+          Full Stack &amp; AI Systems Engineer
+        </h1>
+        <div className="mt-auto pt-10 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+          <p className="text-lg sm:text-xl leading-snug max-w-[38ch]">
+            I'm Ram Krishna Yadav — building retrieval-augmented generation systems,
+            self-hosted cloud platforms, and real-time distributed infrastructure.
+          </p>
+          <div className="flex flex-row md:flex-col gap-3 flex-wrap">
+            <a href="/contacts" className="rd-btn rd-btn-primary">
+              Contact me
+            </a>
+            <a href="/Resume.pdf" target="_blank" rel="noopener noreferrer" className="rd-btn">
+              <FileText size={18} aria-hidden="true" />
+              Resume
+            </a>
           </div>
         </div>
       </div>
-    </section>
-  );
-};
+    </Window>
+
+    <Window title="PROFILE / MONITOR" as="aside" className="lg:mt-10">
+      <div className="rd-well p-3">
+        <div className="border-2 border-black bg-[var(--rd-yellow)] aspect-square overflow-hidden">
+          <img
+            src="/pp.png"
+            alt="Ram Krishna Yadav"
+            width={380}
+            height={380}
+            className="w-full h-full object-cover object-top"
+          />
+        </div>
+      </div>
+      <dl className="mt-[5px] space-y-[5px]">
+        {stats.map((s, i) => (
+          <div key={s.label} className="rd-well px-4 py-3">
+            <div className="flex items-baseline justify-between">
+              <dt className="font-semibold text-[15px]">{s.label}</dt>
+              <span className="rd-num text-[#808080]">{String(i + 1).padStart(2, "0")}</span>
+            </div>
+            <dd className="font-mono text-[2rem] leading-tight mt-1">{s.value}</dd>
+            <p className="text-sm">{s.note}</p>
+            <div className={`rd-meter mt-2 ${s.color}`} aria-hidden="true">
+              {Array.from({ length: 11 }).map((_, k) => (
+                <i key={k} />
+              ))}
+            </div>
+          </div>
+        ))}
+      </dl>
+    </Window>
+  </section>
+);
 
 export default Hero;

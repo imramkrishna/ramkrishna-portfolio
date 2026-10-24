@@ -1,26 +1,24 @@
-import Navbar from "@/components/layout/Navbar";
-import Sidebar from "@/components/layout/Sidebar";
-import Footer from "@/components/layout/Footer";
+import PageShell from "@/components/layout/PageShell";
 import Hero from "@/components/sections/Hero";
-import Quote from "@/components/sections/Quote";
+import Ticker from "@/components/shared/Ticker";
+import AboutReadme from "@/components/sections/AboutPreview";
 import SkillsSection from "@/components/sections/SkillsSection";
-import AboutPreview from "@/components/sections/AboutPreview";
-import ContactsPreview from "@/components/sections/ContactsPreview";
+import ProjectsSection from "@/components/sections/ProjectsSection";
+import Experience from "@/components/sections/Experience";
+import Highlights from "@/components/sections/Highlights";
+import Cta from "@/components/sections/ContactsPreview";
 
-const Index = () => {
-  return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
-      <Sidebar />
-
-      <main className="pt-16 md:pl-16 lg:pl-24">
-        <Hero />
-        <SkillsSection />
-      </main>
-
-      <Footer />
-    </div>
-  );
-};
+const Index = () => (
+  <PageShell>
+    <Hero />
+    <Ticker text="Open to freelance and full-time opportunities" />
+    <AboutReadme className="lg:w-[92%] lg:ml-auto" />
+    <SkillsSection number="03" className="lg:w-[92%]" />
+    <ProjectsSection number="04" className="lg:w-[96%] lg:ml-auto" />
+    <Experience number="05" className="lg:w-[94%]" />
+    <Highlights number="06" className="lg:w-[94%] lg:ml-auto" />
+    <Cta className="lg:w-[80%] lg:mx-auto" />
+  </PageShell>
+);
 
 export default Index;

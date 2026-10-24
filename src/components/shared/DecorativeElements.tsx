@@ -10,7 +10,7 @@ export const DecorativeDots = ({ rows = 5, cols = 5, className = "" }: Decorativ
       {Array.from({ length: rows * cols }).map((_, i) => (
         <div
           key={i}
-          className="w-1 h-1 bg-muted-foreground rounded-full"
+          className="w-1 h-1 bg-black"
         />
       ))}
     </div>

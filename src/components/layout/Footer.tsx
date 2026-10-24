@@ -1,82 +1,96 @@
-import { Github, Linkedin, MessageCircle } from "lucide-react";
+import { Link } from "react-router-dom";
+import Window from "@/components/shared/Window";
+import { EMAIL, socialLinks } from "@/data/profile";
 
-const Footer = () => {
-  return (
-    <footer className="border-t border-border py-8 mt-20">
-      <div className="container mx-auto px-4 md:px-8 lg:px-16">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          {/* Left side - Branding with Avatar */}
-          <div className="flex flex-col items-center md:items-start gap-3">
+const Folder = () => (
+  <svg width="30" height="24" viewBox="0 0 30 24" aria-hidden="true" className="flex-none">
+    <path d="M1 3h10l3 3h15v17H1z" fill="#ffff55" stroke="#000" strokeWidth="2" />
+    <path d="M1 8h28" stroke="#000" strokeWidth="2" />
+  </svg>
+);
+
+const columns = [
+  {
+    title: "Pages",
+    links: [
+      { label: "Home", to: "/" },
+      { label: "About", to: "/about" },
+      { label: "Contacts", to: "/contacts" },
+    ],
+  },
+  {
+    title: "Connect",
+    links: socialLinks
+      .filter((l) => l.label !== "Discord")
+      .map((l) => ({ label: l.label, href: l.href })),
+  },
+  {
+    title: "Projects & CV",
+    links: [
+      { label: "Salesient (RAG)", href: "https://salesient.venyxtech.com/" },
+      { label: "Zyotra (PaaS)", href: "https://github.com/Zyotra" },
+      { label: "ChessOnline", href: "https://github.com/imramkrishna/ChessOnline" },
+      { label: "Resume (PDF)", href: "/Resume.pdf" },
+    ],
+  },
+];
+
+const Footer = () => (
+  <footer className="px-3 md:px-6 mt-16 pb-10">
+    <div className="max-w-[1280px] mx-auto bg-[var(--rd-teal)] border-2 border-black p-3 md:p-5 shadow-[var(--rd-shadow)]">
+      <Window title="RAM / DIRECTORY" className="shadow-none">
+        <div className="rd-pane bg-[var(--rd-gray)] p-5 md:p-8 grid gap-8 md:grid-cols-[1.3fr_repeat(3,1fr)]">
+          <div>
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-primary/50 hover:border-primary transition-colors">
-                <img
-                  src="/pp.jpeg"
-                  alt="Ram Krishna Yadav"
-                  className="w-full h-full object-cover object-top"
-                />
-              </div>
-              <div className="flex items-center gap-1 text-foreground font-semibold">
-                <span className="text-primary">Ram</span>
-                <span>Krishna</span>
-              </div>
+              <span className="w-12 h-12 overflow-hidden border-2 border-black bg-[var(--rd-yellow)]">
+                <img src="/pp.png" alt="" className="w-full h-full object-cover object-top" />
+              </span>
+              <span className="rd-disp text-3xl">Ram Krishna</span>
             </div>
-            <a
-              href="mailto:itsramky234@gmail.com"
-              className="text-muted-foreground text-sm hover:text-foreground transition-colors"
-            >
-              itsramky234@gmail.com
+            <p className="mt-4 text-lg leading-snug max-w-[26ch]">
+              Full Stack &amp; AI Systems Engineer based in Nepal.
+            </p>
+            <a href={`mailto:${EMAIL}`} className="rd-link mt-3 inline-block break-all text-[15px]">
+              {EMAIL}
             </a>
           </div>
 
-          {/* Center - Description */}
-          <p className="text-muted-foreground text-sm text-center">
-            Full Stack Software Engineer at <a href="https://venyxtech.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Venyx Technology International</a> • Based in Nepal
-          </p>
-
-          {/* Right side - Social */}
-          <div className="flex flex-col items-center md:items-end gap-2">
-            <span className="text-muted-foreground text-sm">Media</span>
-            <div className="flex items-center gap-3">
-              <a
-                href="https://github.com/imramkrishna"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-                aria-label="GitHub"
-              >
-                <Github size={20} />
-              </a>
-              <a
-                href="https://linkedin.com/in/ramkrishnaprofile"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin size={20} />
-              </a>
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-                aria-label="Discord"
-              >
-                <MessageCircle size={20} />
-              </a>
-            </div>
-          </div>
+          {columns.map((col) => (
+            <nav key={col.title} aria-label={col.title}>
+              <h2 className="flex items-center gap-3 !normal-case !tracking-normal !leading-tight text-xl !font-sans !font-semibold">
+                <Folder />
+                {col.title}
+              </h2>
+              <ul className="rd-tree mt-4 space-y-2.5 text-[17px]">
+                {col.links.map((l) => (
+                  <li key={l.label}>
+                    {"to" in l ? (
+                      <Link to={l.to!} className="hover:text-[var(--rd-purple)] hover:underline">
+                        {l.label}
+                      </Link>
+                    ) : (
+                      <a
+                        href={l.href}
+                        target={l.href!.startsWith("http") ? "_blank" : undefined}
+                        rel="noopener noreferrer"
+                        className="hover:text-[var(--rd-purple)] hover:underline"
+                      >
+                        {l.label}
+                      </a>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          ))}
         </div>
-
-        {/* Copyright */}
-        <div className="mt-8 pt-4 border-t border-border text-center">
-          <p className="text-muted-foreground text-sm">
-            © {new Date().getFullYear()} Ram Krishna. All rights reserved.
-          </p>
-        </div>
+      </Window>
+      <div className="rd-well mt-4 px-4 py-3 flex flex-col sm:flex-row justify-between gap-2 font-mono text-[13px]">
+        <span>© {new Date().getFullYear()} Ram Krishna Yadav. All rights reserved.</span>
+        <span>Built with React + Tailwind.</span>
       </div>
-    </footer>
-  );
-};
+    </div>
+  </footer>
+);
 
 export default Footer;
