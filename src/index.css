@@ -59,6 +59,7 @@
 
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
   body {
@@ -68,6 +69,7 @@
     font-family: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
     font-feature-settings: "cv11", "ss01", "ss03";
     font-weight: 400;
+    overflow-x: hidden;
   }
 
   h1,
@@ -126,6 +128,7 @@
     position: relative;
     overflow: hidden;
     isolation: isolate;
+    max-width: 100%;
   }
 
   /* Dark surfaces: never flat — bottom-heavy gradient */
@@ -195,8 +198,14 @@
 
   /* 3D mock-up window */
   .tilt-3d {
-    transform: perspective(1600px) rotateY(-8deg) rotateX(4deg) rotateZ(3deg);
+    transform: perspective(1600px) rotateY(-4deg) rotateX(2deg) rotateZ(1deg);
     transition: transform 0.8s var(--ds-ease);
+  }
+
+  @media (min-width: 640px) {
+    .tilt-3d {
+      transform: perspective(1600px) rotateY(-8deg) rotateX(4deg) rotateZ(3deg);
+    }
   }
 
   .tilt-3d:hover {
@@ -236,6 +245,6 @@
 
   .tilt-3d,
   .tilt-3d:hover {
-    transform: perspective(1600px) rotateZ(3deg);
+    transform: perspective(1600px) rotateZ(1.5deg);
   }
 }

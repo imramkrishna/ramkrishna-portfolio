@@ -31,7 +31,7 @@ const linkClass = "text-sm text-white/60 transition-colors duration-300 hover:te
 
 const Footer = () => (
   <footer className="px-2 pb-2 pt-3 sm:px-3 sm:pb-3">
-    <div className="ds-section ds-dark mx-auto max-w-site px-6 pb-8 pt-16 sm:px-10 lg:px-14">
+    <div className="ds-section ds-dark mx-auto max-w-site px-5 pb-7 pt-12 sm:px-10 sm:pb-8 sm:pt-16 lg:px-14">
       <div className="grain" aria-hidden="true" />
       <span
         aria-hidden="true"
@@ -40,28 +40,28 @@ const Footer = () => (
         RAM
       </span>
 
-      <div className="relative z-[2] grid gap-12 md:grid-cols-[1.4fr_repeat(3,1fr)]">
-        <div>
+      <div className="relative z-[2] grid grid-cols-2 gap-8 sm:gap-10 md:grid-cols-[1.4fr_repeat(3,1fr)] md:gap-12">
+        <div className="col-span-2 min-w-0 md:col-span-1">
           <div className="flex items-center gap-3">
-            <span className="h-11 w-11 overflow-hidden rounded-full ring-1 ring-white/20">
+            <span className="h-10 w-10 flex-none overflow-hidden rounded-full ring-1 ring-white/20 sm:h-11 sm:w-11">
               <img src="/pp.png" alt="" className="h-full w-full object-cover object-top" />
             </span>
-            <span className="text-xl font-semibold tracking-[-0.04em]">Ram Krishna Yadav</span>
+            <span className="text-lg font-semibold tracking-[-0.04em] sm:text-xl">Ram Krishna Yadav</span>
           </div>
-          <p className="mt-5 max-w-xs text-sm font-light leading-relaxed text-white/50">
+          <p className="mt-4 max-w-xs text-sm font-light leading-relaxed text-white/50 sm:mt-5">
             Full Stack &amp; AI Systems Engineer based in Nepal.
           </p>
-          <div className="mt-5 flex flex-col gap-1.5">
-            <a href={`mailto:${EMAIL}`} className={linkClass}>
+          <div className="mt-4 flex flex-col gap-1.5 sm:mt-5">
+            <a href={`mailto:${EMAIL}`} className={`${linkClass} break-all`}>
               {EMAIL}
             </a>
           </div>
         </div>
 
         {columns.map((col) => (
-          <nav key={col.title} aria-label={col.title}>
+          <nav key={col.title} aria-label={col.title} className="min-w-0">
             <h2 className="ds-label text-white/40">{col.title}</h2>
-            <ul className="mt-5 space-y-3">
+            <ul className="mt-4 space-y-2.5 sm:mt-5 sm:space-y-3">
               {col.links.map((l) => (
                 <li key={l.label}>
                   {"to" in l ? (
@@ -85,10 +85,10 @@ const Footer = () => (
         ))}
       </div>
 
-      <div className="relative z-[2] mt-20 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between">
+      <div className="relative z-[2] mt-12 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-white/40 sm:mt-20 sm:flex-row sm:items-center sm:justify-between">
         <span>© {new Date().getFullYear()} Ram Krishna Yadav. All rights reserved.</span>
         <span className="inline-flex items-center gap-2">
-          <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" aria-hidden="true" />
+          <span className="h-1.5 w-1.5 flex-none rounded-full bg-emerald-400" aria-hidden="true" />
           Open to freelance and full-time opportunities
         </span>
       </div>

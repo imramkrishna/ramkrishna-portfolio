@@ -18,7 +18,7 @@ const About = () => (
       titleId="about-page-title"
       word="ABOUT"
       aside={
-        <div className="glass w-full rounded-3xl p-3 lg:w-72">
+        <div className="glass mx-auto w-full max-w-xs rounded-3xl p-3 sm:max-w-sm lg:mx-0 lg:w-72">
           <div className="aspect-[4/5] overflow-hidden rounded-2xl">
             <img src="/pp.png" alt="Ram Krishna Yadav" className="h-full w-full object-cover object-top" />
           </div>
@@ -29,12 +29,14 @@ const About = () => (
         </div>
       }
     >
-      <p className="max-w-xl text-lg font-light leading-relaxed text-white/60">
+      <p className="max-w-xl text-base font-light leading-relaxed text-white/60 sm:text-lg">
         Computer Engineering undergraduate building production AI pipelines, self-hosted cloud
         infrastructure, and real-time distributed systems.
       </p>
-      <div className="mt-8">
-        <ActionButton href="/Resume.pdf">Download resume</ActionButton>
+      <div className="mt-6 sm:mt-8">
+        <ActionButton href="/Resume.pdf" className="w-full sm:w-auto">
+          Download resume
+        </ActionButton>
       </div>
     </PageHeader>
 

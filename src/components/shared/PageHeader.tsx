@@ -15,7 +15,7 @@ interface PageHeaderProps {
 const PageHeader = ({ label, title, titleId, word, children, aside, className }: PageHeaderProps) => (
   <section
     aria-labelledby={titleId}
-    className={cn("ds-section ds-dark flex min-h-[70vh] flex-col", className)}
+    className={cn("ds-section ds-dark flex min-h-[60vh] flex-col sm:min-h-[70vh]", className)}
   >
     <img
       src="/hero-abstract.jpg"
@@ -33,19 +33,19 @@ const PageHeader = ({ label, title, titleId, word, children, aside, className }:
       {word}
     </span>
 
-    <div className="relative z-[2] mx-auto flex w-full max-w-site flex-1 flex-col justify-end gap-12 px-6 pb-12 pt-32 sm:px-10 lg:flex-row lg:items-end lg:justify-between lg:px-14 lg:pb-14">
-      <div className="max-w-3xl">
+    <div className="relative z-[2] mx-auto flex w-full max-w-site flex-1 flex-col justify-end gap-8 px-5 pb-9 pt-24 sm:gap-12 sm:px-10 sm:pb-12 sm:pt-32 lg:flex-row lg:items-end lg:justify-between lg:px-14 lg:pb-14">
+      <div className="min-w-0 max-w-3xl">
         <p className="ds-label text-white/50 animate-fade-in-up">{label}</p>
         <h1
           id={titleId}
-          className="mt-6 text-[clamp(3rem,8vw,7.5rem)] font-semibold leading-[1.05] tracking-[-0.05em] animate-fade-in-up"
+          className="mt-4 text-[clamp(2.25rem,8vw,7.5rem)] font-semibold leading-[1.05] tracking-[-0.05em] animate-fade-in-up sm:mt-6"
           style={{ "--reveal-delay": "80ms" } as React.CSSProperties}
         >
           {title}
         </h1>
         {children && (
           <div
-            className="mt-7 animate-fade-in-up"
+            className="mt-5 animate-fade-in-up sm:mt-7"
             style={{ "--reveal-delay": "160ms" } as React.CSSProperties}
           >
             {children}
@@ -53,7 +53,10 @@ const PageHeader = ({ label, title, titleId, word, children, aside, className }:
         )}
       </div>
       {aside && (
-        <div className="animate-fade-in-up" style={{ "--reveal-delay": "240ms" } as React.CSSProperties}>
+        <div
+          className="min-w-0 w-full lg:w-auto animate-fade-in-up"
+          style={{ "--reveal-delay": "240ms" } as React.CSSProperties}
+        >
           {aside}
         </div>
       )}
