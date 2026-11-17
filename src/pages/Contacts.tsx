@@ -1,74 +1,93 @@
-import { Github, Linkedin, Mail, MessageCircle, Send } from "lucide-react";
+import { ArrowUpRight, Github, Linkedin, Mail, MessageCircle, Send } from "lucide-react";
 import PageShell from "@/components/layout/PageShell";
-import Window from "@/components/shared/Window";
-import Ticker from "@/components/shared/Ticker";
+import PageHeader from "@/components/shared/PageHeader";
+import ActionButton from "@/components/shared/ActionButton";
+import Reveal from "@/components/shared/Reveal";
 import { EMAIL, socialLinks } from "@/data/profile";
 
 const icons = { GitHub: Github, LinkedIn: Linkedin, Discord: MessageCircle, Email: Mail } as const;
 
 const Contacts = () => (
   <PageShell>
-    <Window title="CONTACTS.EXE" labelledBy="contacts-title">
-      <div className="rd-pane bg-[var(--rd-yellow)] p-6 sm:p-10 grid lg:grid-cols-[1.2fr_1fr] gap-8 items-end">
-        <div>
-          <p className="rd-num">01 / GET IN TOUCH</p>
-          <h1 id="contacts-title" className="rd-hero-title mt-6 text-[clamp(3rem,8vw,6.5rem)]">
-            Let's talk
-          </h1>
-          <p className="mt-6 text-xl leading-snug max-w-[40ch]">
-            I'm interested in freelance opportunities, especially ambitious or large projects.
-            If you have any other request or question, don't hesitate to contact me.
-          </p>
+    <PageHeader
+      label="01 / Get in touch"
+      title={
+        <>
+          Let's <span className="text-white/50">talk</span>
+        </>
+      }
+      titleId="contacts-title"
+      word="HELLO"
+      aside={
+        <div className="glass w-full rounded-3xl p-6 lg:w-80">
+          <div className="flex items-center gap-2">
+            <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-400" aria-hidden="true" />
+            <span className="ds-label text-white/70">Available</span>
+          </div>
+          <p className="mt-4 text-3xl font-semibold tracking-[-0.05em]">Fast replies</p>
+          <p className="mt-1.5 text-sm text-white/60">I'll respond as quickly as possible.</p>
         </div>
-        <div className="flex flex-col items-start lg:items-end gap-4">
-          <a href={`mailto:${EMAIL}`} className="rd-btn rd-btn-primary">
-            <Send size={18} aria-hidden="true" />
-            Send me an email
-          </a>
-          <p className="font-mono text-sm lg:text-right">I'll respond as quickly as possible.</p>
-        </div>
+      }
+    >
+      <p className="max-w-xl text-lg font-light leading-relaxed text-white/60">
+        I'm interested in freelance opportunities, especially ambitious or large projects. If you
+        have any other request or question, don't hesitate to contact me.
+      </p>
+      <div className="mt-8">
+        <ActionButton href={`mailto:${EMAIL}`} icon={Send}>
+          Send me an email
+        </ActionButton>
       </div>
-    </Window>
+    </PageHeader>
 
-    <Ticker text="Whether it's a project, a job, or just a hello" />
-
-    <Window title="CONTACTS / DIRECTORY" className="lg:w-[92%] lg:ml-auto" labelledBy="reach-title">
-      <div className="grid lg:grid-cols-[minmax(0,320px)_1fr] gap-[5px]">
-        <div className="bg-[var(--rd-purple)] text-white p-6 sm:p-8 flex flex-col gap-6 min-h-[240px]">
-          <p className="rd-num">02</p>
-          <h2 id="reach-title" className="rd-disp rd-shadow-text text-[clamp(2rem,3.2vw,2.8rem)] uppercase !leading-[.92]">
-            Where to find me
+    <section aria-labelledby="reach-title" className="ds-section px-4 py-20 sm:px-8 md:py-28 lg:px-14">
+      <div className="mx-auto max-w-site">
+        <Reveal>
+          <p className="ds-label text-zinc-400">
+            02 <span className="mx-2 text-zinc-300">/</span> Directory
+          </p>
+          <h2
+            id="reach-title"
+            className="mt-6 text-4xl font-semibold leading-[1.05] tracking-[-0.05em] text-zinc-900 md:text-5xl"
+          >
+            Where to find me.
           </h2>
-          <span className="mt-auto w-24 h-24 border-2 border-black bg-[var(--rd-yellow)] overflow-hidden shadow-[3px_3px_0_#000]">
-            <img src="/pp.png" alt="" className="w-full h-full object-cover object-top" />
-          </span>
-        </div>
-        <ul className="bg-white border-2 border-[#808080] grid sm:grid-cols-2">
-          {socialLinks.map((link) => {
+          <p className="mt-5 max-w-lg text-[17px] font-light leading-relaxed text-zinc-500">
+            Whether it's a project, a job, or just a hello.
+          </p>
+        </Reveal>
+
+        <ul className="mt-14 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          {socialLinks.map((link, i) => {
             const Icon = icons[link.label as keyof typeof icons];
             const external = link.href.startsWith("http");
             return (
-              <li key={link.label} className="rd-grid-cell">
+              <Reveal as="li" key={link.label} delay={i * 80}>
                 <a
                   href={link.href}
                   target={external ? "_blank" : undefined}
                   rel={external ? "noopener noreferrer" : undefined}
-                  className="group flex items-start gap-4 p-6 h-full hover:bg-[var(--rd-yellow)]"
+                  className="group flex h-full flex-col rounded-[2rem] border border-zinc-100 bg-white p-6 transition-all duration-300 ease-expo hover:-translate-y-1 hover:shadow-[0_30px_60px_-30px_rgba(0,0,0,0.25)]"
                 >
-                  <span className="flex-none w-11 h-11 border-2 border-black bg-[var(--rd-yellow)] group-hover:bg-white flex items-center justify-center shadow-[2px_2px_0_#000]">
-                    <Icon size={22} aria-hidden="true" />
-                  </span>
-                  <span className="min-w-0">
-                    <span className="block text-xl font-semibold leading-tight">{link.label}</span>
-                    <span className="block mt-1 text-[17px] break-all underline underline-offset-4">{link.value}</span>
-                  </span>
+                  <div className="flex items-start justify-between">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-zinc-900 text-white transition-colors duration-300 group-hover:bg-zinc-700">
+                      <Icon size={20} aria-hidden="true" />
+                    </span>
+                    <ArrowUpRight
+                      size={18}
+                      className="text-zinc-300 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-zinc-900"
+                      aria-hidden="true"
+                    />
+                  </div>
+                  <p className="ds-label mt-12 text-zinc-400">{link.label}</p>
+                  <p className="mt-2 break-all text-lg font-medium tracking-[-0.03em] text-zinc-900">{link.value}</p>
                 </a>
-              </li>
+              </Reveal>
             );
           })}
         </ul>
       </div>
-    </Window>
+    </section>
   </PageShell>
 );
 

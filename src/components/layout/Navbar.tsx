@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
-import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { useEffect, useState } from "react";
+import { ArrowUpRight, Menu, X } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const navLinks = [
   { path: "/", label: "Home" },
@@ -12,68 +13,88 @@ const Navbar = () => {
   const location = useLocation();
   const [open, setOpen] = useState(false);
 
+  useEffect(() => setOpen(false), [location.pathname]);
+
   return (
-    <header className="sticky top-0 z-50 px-3 md:px-6 pt-3 pb-1">
-      <div className="max-w-[1280px] mx-auto">
-        <nav
-          aria-label="Primary"
-          className="rd-win !p-0 flex items-center justify-between gap-4 px-3 py-2 md:px-5"
+    <header className="fixed inset-x-0 top-4 z-50 px-4 md:top-6">
+      <nav
+        aria-label="Primary"
+        className="glass-nav mx-auto flex w-full max-w-3xl items-center justify-between gap-2 rounded-full p-1.5 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.6)] animate-fade-in-up"
+      >
+        <Link
+          to="/"
+          className="flex items-center gap-2.5 rounded-full py-1 pl-1 pr-3 text-white transition-colors duration-300 hover:bg-white/10"
         >
-          <Link to="/" className="flex items-center gap-3 no-underline text-black">
-            <span className="w-11 h-11 overflow-hidden border-2 border-black bg-[var(--rd-yellow)] flex-none shadow-[2px_2px_0_#000]">
-              <img src="/pp.png" alt="Ram Krishna Yadav" className="w-full h-full object-cover object-top" />
-            </span>
-            <span className="rd-disp text-2xl md:text-3xl">Ram Krishna</span>
-          </Link>
-
-          <ul className="hidden md:flex items-center gap-8 mr-auto ml-10">
-            {navLinks.map((link) => {
-              const active = location.pathname === link.path;
-              return (
-                <li key={link.path}>
-                  <Link
-                    to={link.path}
-                    aria-current={active ? "page" : undefined}
-                    className={`rd-link text-lg ${active ? "bg-[var(--rd-yellow)] text-black px-1" : ""}`}
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-
-          <span
-            aria-hidden="true"
-            className="hidden md:flex gap-3 border-2 border-[#808080] bg-[var(--rd-gray)] px-4 py-2 shadow-[inset_1px_1px_0_#fff]"
-          >
-            <i className="w-3 h-3 bg-[var(--rd-purple)]" />
-            <i className="w-3 h-3 bg-[var(--rd-purple)]" />
-            <i className="w-3 h-3 bg-[var(--rd-purple)]" />
+          <span className="relative h-8 w-8 flex-none overflow-hidden rounded-full ring-1 ring-white/20">
+            <img src="/pp.png" alt="" className="h-full w-full object-cover object-top" />
           </span>
+          <span className="text-sm font-semibold tracking-tight">Ram Krishna</span>
+        </Link>
 
-          <button
-            className="md:hidden rd-btn !min-h-[44px] !min-w-[44px] !p-2"
-            onClick={() => setOpen(!open)}
-            aria-label="Toggle menu"
-            aria-expanded={open}
-          >
-            {open ? <X size={22} /> : <Menu size={22} />}
-          </button>
-        </nav>
-
-        {open && (
-          <ul className="md:hidden rd-win mt-3 flex flex-col gap-3 p-4">
-            {navLinks.map((link) => (
+        <ul className="hidden items-center gap-1 md:flex">
+          {navLinks.map((link) => {
+            const active = location.pathname === link.path;
+            return (
               <li key={link.path}>
-                <Link to={link.path} className="rd-link text-lg" onClick={() => setOpen(false)}>
+                <Link
+                  to={link.path}
+                  aria-current={active ? "page" : undefined}
+                  className={cn(
+                    "rounded-full px-4 py-2 text-sm text-white/80 transition-colors duration-300 hover:bg-white/10 hover:text-white",
+                    active && "bg-white/10 text-white",
+                  )}
+                >
                   {link.label}
                 </Link>
               </li>
-            ))}
-          </ul>
-        )}
-      </div>
+            );
+          })}
+        </ul>
+
+        <a
+          href="/Resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hidden items-center gap-1.5 rounded-full bg-white px-4 py-2 text-sm font-medium text-zinc-900 transition-transform duration-300 ease-expo hover:scale-105 md:inline-flex"
+        >
+          Resume
+          <ArrowUpRight size={15} aria-hidden="true" />
+        </a>
+
+        <button
+          className="flex h-10 w-10 items-center justify-center rounded-full text-white transition-colors duration-300 hover:bg-white/10 md:hidden"
+          onClick={() => setOpen((v) => !v)}
+          aria-label="Toggle menu"
+          aria-expanded={open}
+        >
+          {open ? <X size={20} /> : <Menu size={20} />}
+        </button>
+      </nav>
+
+      {open && (
+        <ul className="glass-nav mx-auto mt-3 flex max-w-3xl flex-col gap-1 rounded-3xl p-2 animate-fade-in-up md:hidden">
+          {navLinks.map((link) => (
+            <li key={link.path}>
+              <Link
+                to={link.path}
+                className="block rounded-full px-4 py-3 text-white/80 transition-colors duration-300 hover:bg-white/10 hover:text-white"
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
+          <li>
+            <a
+              href="/Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block rounded-full px-4 py-3 text-white/80 transition-colors duration-300 hover:bg-white/10 hover:text-white"
+            >
+              Resume (PDF)
+            </a>
+          </li>
+        </ul>
+      )}
     </header>
   );
 };

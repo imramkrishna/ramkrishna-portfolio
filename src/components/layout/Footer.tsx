@@ -1,13 +1,5 @@
 import { Link } from "react-router-dom";
-import Window from "@/components/shared/Window";
 import { EMAIL, socialLinks } from "@/data/profile";
-
-const Folder = () => (
-  <svg width="30" height="24" viewBox="0 0 30 24" aria-hidden="true" className="flex-none">
-    <path d="M1 3h10l3 3h15v17H1z" fill="#ffff55" stroke="#000" strokeWidth="2" />
-    <path d="M1 8h28" stroke="#000" strokeWidth="2" />
-  </svg>
-);
 
 const columns = [
   {
@@ -35,58 +27,70 @@ const columns = [
   },
 ];
 
+const linkClass = "text-sm text-white/60 transition-colors duration-300 hover:text-white";
+
 const Footer = () => (
-  <footer className="px-3 md:px-6 mt-16 pb-10">
-    <div className="max-w-[1280px] mx-auto bg-[var(--rd-teal)] border-2 border-black p-3 md:p-5 shadow-[var(--rd-shadow)]">
-      <Window title="RAM / DIRECTORY" className="shadow-none">
-        <div className="rd-pane bg-[var(--rd-gray)] p-5 md:p-8 grid gap-8 md:grid-cols-[1.3fr_repeat(3,1fr)]">
-          <div>
-            <div className="flex items-center gap-3">
-              <span className="w-12 h-12 overflow-hidden border-2 border-black bg-[var(--rd-yellow)]">
-                <img src="/pp.png" alt="" className="w-full h-full object-cover object-top" />
-              </span>
-              <span className="rd-disp text-3xl">Ram Krishna</span>
-            </div>
-            <p className="mt-4 text-lg leading-snug max-w-[26ch]">
-              Full Stack &amp; AI Systems Engineer based in Nepal.
-            </p>
-            <a href={`mailto:${EMAIL}`} className="rd-link mt-3 inline-block break-all text-[15px]">
+  <footer className="px-2 pb-2 pt-3 sm:px-3 sm:pb-3">
+    <div className="ds-section ds-dark mx-auto max-w-site px-6 pb-8 pt-16 sm:px-10 lg:px-14">
+      <div className="grain" aria-hidden="true" />
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 -bottom-[3vw] select-none text-center text-[18vw] font-bold leading-none tracking-[-0.06em] text-white opacity-[0.03] blur-[2px]"
+      >
+        RAM
+      </span>
+
+      <div className="relative z-[2] grid gap-12 md:grid-cols-[1.4fr_repeat(3,1fr)]">
+        <div>
+          <div className="flex items-center gap-3">
+            <span className="h-11 w-11 overflow-hidden rounded-full ring-1 ring-white/20">
+              <img src="/pp.png" alt="" className="h-full w-full object-cover object-top" />
+            </span>
+            <span className="text-xl font-semibold tracking-[-0.04em]">Ram Krishna Yadav</span>
+          </div>
+          <p className="mt-5 max-w-xs text-sm font-light leading-relaxed text-white/50">
+            Full Stack &amp; AI Systems Engineer based in Nepal.
+          </p>
+          <div className="mt-5 flex flex-col gap-1.5">
+            <a href={`mailto:${EMAIL}`} className={linkClass}>
               {EMAIL}
             </a>
           </div>
-
-          {columns.map((col) => (
-            <nav key={col.title} aria-label={col.title}>
-              <h2 className="flex items-center gap-3 !normal-case !tracking-normal !leading-tight text-xl !font-sans !font-semibold">
-                <Folder />
-                {col.title}
-              </h2>
-              <ul className="rd-tree mt-4 space-y-2.5 text-[17px]">
-                {col.links.map((l) => (
-                  <li key={l.label}>
-                    {"to" in l ? (
-                      <Link to={l.to!} className="hover:text-[var(--rd-purple)] hover:underline">
-                        {l.label}
-                      </Link>
-                    ) : (
-                      <a
-                        href={l.href}
-                        target={l.href!.startsWith("http") ? "_blank" : undefined}
-                        rel="noopener noreferrer"
-                        className="hover:text-[var(--rd-purple)] hover:underline"
-                      >
-                        {l.label}
-                      </a>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          ))}
         </div>
-      </Window>
-      <div className="rd-well mt-4 px-4 py-3 flex flex-col sm:flex-row  justify-center gap-2 font-mono text-[13px]">
+
+        {columns.map((col) => (
+          <nav key={col.title} aria-label={col.title}>
+            <h2 className="ds-label text-white/40">{col.title}</h2>
+            <ul className="mt-5 space-y-3">
+              {col.links.map((l) => (
+                <li key={l.label}>
+                  {"to" in l ? (
+                    <Link to={l.to!} className={linkClass}>
+                      {l.label}
+                    </Link>
+                  ) : (
+                    <a
+                      href={l.href}
+                      target={l.href!.startsWith("http") || l.href!.endsWith(".pdf") ? "_blank" : undefined}
+                      rel="noopener noreferrer"
+                      className={linkClass}
+                    >
+                      {l.label}
+                    </a>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </nav>
+        ))}
+      </div>
+
+      <div className="relative z-[2] mt-20 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between">
         <span>© {new Date().getFullYear()} Ram Krishna Yadav. All rights reserved.</span>
+        <span className="inline-flex items-center gap-2">
+          <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" aria-hidden="true" />
+          Open to freelance and full-time opportunities
+        </span>
       </div>
     </div>
   </footer>

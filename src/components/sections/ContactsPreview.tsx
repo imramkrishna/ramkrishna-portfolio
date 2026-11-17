@@ -1,34 +1,53 @@
+import { Link } from "react-router-dom";
 import { Send } from "lucide-react";
-import Window from "@/components/shared/Window";
+import ActionButton from "@/components/shared/ActionButton";
+import Reveal from "@/components/shared/Reveal";
 import { EMAIL } from "@/data/profile";
+import { cn } from "@/lib/utils";
 
 const Cta = ({ className = "" }: { className?: string }) => (
-  <Window title="RAM / WHAT NEXT?" className={className} labelledBy="cta-title">
-    <div className="rd-pane bg-[var(--rd-yellow)] p-6 sm:p-10 flex flex-col sm:flex-row gap-6 sm:gap-10 items-start">
-      <span
-        aria-hidden="true"
-        className="flex-none w-24 h-24 sm:w-28 sm:h-28 bg-[var(--rd-purple)] text-white rd-disp !text-[5.5rem] leading-none flex items-center justify-center shadow-[5px_5px_0_#000]"
-      >
-        !
-      </span>
-      <div>
-        <h2 id="cta-title" className="rd-disp text-[clamp(2.2rem,4.6vw,3.8rem)]">
-          Have a project in mind?
+  <section
+    aria-labelledby="cta-title"
+    className={cn("ds-section ds-dark px-6 py-20 sm:px-10 md:py-28 lg:px-14", className)}
+  >
+    <img
+      src="/hero-abstract.jpg"
+      alt=""
+      aria-hidden="true"
+      loading="lazy"
+      className="absolute inset-0 -z-10 h-full w-full scale-x-[-1] object-cover opacity-40"
+    />
+    <div className="absolute inset-0 -z-10 bg-gradient-to-b from-zinc-950/50 to-zinc-950/95" />
+    <div className="grain" aria-hidden="true" />
+
+    <div className="relative z-[2] mx-auto flex max-w-site flex-col items-start gap-10 lg:flex-row lg:items-end lg:justify-between">
+      <Reveal className="max-w-3xl">
+        <p className="ds-label text-white/40">What's next?</p>
+        <h2
+          id="cta-title"
+          className="mt-6 text-[clamp(2.5rem,6vw,5.5rem)] font-semibold leading-[1.05] tracking-[-0.05em]"
+        >
+          Have a project <span className="text-white/40">in mind?</span>
         </h2>
-        <p className="mt-4 text-xl leading-snug max-w-[48ch]">
+        <p className="mt-6 max-w-xl text-lg font-light leading-relaxed text-white/60">
           I'm interested in freelance opportunities, especially ambitious or large projects. Whether
           it's a job, a project, or just a hello, I'll respond as quickly as I can.
         </p>
-        <div className="mt-6 flex flex-wrap gap-4">
-          <a href={`mailto:${EMAIL}`} className="rd-btn rd-btn-primary">
-            <Send size={18} aria-hidden="true" />
-            Send me an email
-          </a>
-          <a href="/contacts" className="rd-btn">All contacts</a>
-        </div>
-      </div>
+      </Reveal>
+
+      <Reveal delay={120} className="flex flex-col items-start gap-4 lg:items-end">
+        <ActionButton href={`mailto:${EMAIL}`} icon={Send}>
+          Send me an email
+        </ActionButton>
+        <Link
+          to="/contacts"
+          className="glass rounded-full px-5 py-2.5 text-sm text-white/80 transition-colors duration-300 hover:bg-white/10 hover:text-white"
+        >
+          All contacts
+        </Link>
+      </Reveal>
     </div>
-  </Window>
+  </section>
 );
 
 export default Cta;

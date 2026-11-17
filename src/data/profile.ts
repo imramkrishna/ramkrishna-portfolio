@@ -39,6 +39,7 @@ export interface ProjectItem {
   linkLabel: string;
   githubHref?: string;
   githubLabel?: string;
+  image: string;
   stack: string[];
   points: string[];
 }
@@ -52,6 +53,7 @@ export const projects: ProjectItem[] = [
     linkLabel: "salesient.venyxtech.com",
     githubHref: "https://github.com/Saleient/Salesient",
     githubLabel: "github.com/Saleient/Salesient",
+    image: "/project-salesient.jpg",
     stack: ["Next.js", "TypeScript", "PostgreSQL", "pgvector", "Redis", "Docker"],
     points: [
       "Built a multi-format ingestion pipeline (PDF, DOCX, XLSX, CSV) with recursive text chunking and 768-dimensional vector embeddings stored in pgvector.",
@@ -66,6 +68,7 @@ export const projects: ProjectItem[] = [
     subtitle: "Self-Hosted Deployment Platform (PaaS)",
     href: "https://github.com/Zyotra",
     linkLabel: "github.com/Zyotra",
+    image: "/project-zyotra.jpg",
     stack: ["TypeScript", "Bun", "Nginx", "PostgreSQL", "MySQL", "Redis", "WebSockets", "AWS S3", "Docker"],
     points: [
       "Built a self-hosted platform-as-a-service replicating managed deployment workflows on bare-metal servers, cutting infrastructure cost by up to 80%.",
@@ -80,6 +83,7 @@ export const projects: ProjectItem[] = [
     subtitle: "Real-Time Multiplayer System",
     href: "https://github.com/imramkrishna/ChessOnline",
     linkLabel: "github.com/imramkrishna/ChessOnline",
+    image: "/chess.png",
     stack: ["React", "Node.js", "Express.js", "WebSockets", "MongoDB", "TypeScript"],
     points: [
       "Built a real-time multiplayer system with authoritative server-side state, low-latency WebSocket transport, and complete rule enforcement.",

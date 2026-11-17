@@ -14,9 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        mono: ["var(--dp-typography-mono)"],
-        sans: ["var(--dp-typography-interface)"],
-        display: ["var(--dp-typography-display)"],
+        sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+        mono: ["JetBrains Mono", "ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -63,7 +62,14 @@ export default {
           ring: "hsl(var(--sidebar-ring))",
         },
       },
+      maxWidth: {
+        site: "1600px",
+      },
+      transitionTimingFunction: {
+        expo: "cubic-bezier(0.16, 1, 0.3, 1)",
+      },
       borderRadius: {
+        section: "2.5rem",
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",

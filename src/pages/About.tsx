@@ -1,36 +1,47 @@
 import PageShell from "@/components/layout/PageShell";
-import Window from "@/components/shared/Window";
-import Ticker from "@/components/shared/Ticker";
-import AboutReadme from "@/components/sections/AboutPreview";
+import PageHeader from "@/components/shared/PageHeader";
+import ActionButton from "@/components/shared/ActionButton";
+import AboutPreview from "@/components/sections/AboutPreview";
 import ProjectsSection from "@/components/sections/ProjectsSection";
 import Experience from "@/components/sections/Experience";
-import SkillsSection from "@/components/sections/SkillsSection";
+import Cta from "@/components/sections/ContactsPreview";
 
 const About = () => (
   <PageShell>
-    <section className="grid gap-8 lg:grid-cols-[1fr_340px] items-start">
-      <Window title="ABOUT.EXE" labelledBy="about-page-title">
-        <div className="rd-pane bg-[var(--rd-yellow)] p-6 sm:p-10 min-h-[260px] flex flex-col">
-          <p className="rd-num">01 / WHO AM I?</p>
-          <h1 id="about-page-title" className="rd-hero-title mt-6 text-[clamp(3rem,8vw,6.5rem)]">
-            About me
-          </h1>
-        </div>
-      </Window>
-      <Window title="PROFILE.JPG" as="aside">
-        <div className="rd-well p-3">
-          <div className="border-2 border-black bg-[var(--rd-yellow)] aspect-[4/5] overflow-hidden">
-            <img src="/pp.png" alt="Ram Krishna Yadav" className="w-full h-full object-cover object-top" />
+    <PageHeader
+      label="01 / Who am I?"
+      title={
+        <>
+          About <span className="text-white/50">me</span>
+        </>
+      }
+      titleId="about-page-title"
+      word="ABOUT"
+      aside={
+        <div className="glass w-full rounded-3xl p-3 lg:w-72">
+          <div className="aspect-[4/5] overflow-hidden rounded-2xl">
+            <img src="/pp.png" alt="Ram Krishna Yadav" className="h-full w-full object-cover object-top" />
+          </div>
+          <div className="px-2 pb-1 pt-4">
+            <p className="font-semibold tracking-[-0.03em]">Ram Krishna Yadav</p>
+            <p className="mt-0.5 text-sm text-white/60">Full Stack &amp; AI Systems Engineer · Nepal</p>
           </div>
         </div>
-      </Window>
-    </section>
+      }
+    >
+      <p className="max-w-xl text-lg font-light leading-relaxed text-white/60">
+        Computer Engineering undergraduate building production AI pipelines, self-hosted cloud
+        infrastructure, and real-time distributed systems.
+      </p>
+      <div className="mt-8">
+        <ActionButton href="/Resume.pdf">Download resume</ActionButton>
+      </div>
+    </PageHeader>
 
-    <Ticker text="Full Stack & AI Systems Engineer · Based in Nepal" />
-    <AboutReadme />
-    <ProjectsSection number="03" className="lg:w-[96%] lg:ml-auto" />
-    <Experience number="04" className="lg:w-[94%]" />
-    <SkillsSection number="05" className="lg:w-[94%] lg:ml-auto" />
+    <AboutPreview id="readme" number="02" />
+    <ProjectsSection number="03" />
+    <Experience number="04" />
+    <Cta />
   </PageShell>
 );
 
